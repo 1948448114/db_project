@@ -21,3 +21,11 @@ class Books(Base):
 	picture = Column(VARCHAR(50),nullable=False)
 	note = Column(VARCHAR(1024),nullable=False)
 
+class Users(Base):
+	__tablename__ = 'Users'
+
+	name = Column(VARCHAR(50),nullable=False)
+	pwd=Column(VARCHAR(50),nullable=False)
+	email=Column(VARCHAR(50),nullable=False)
+	address=Column(VARCHAR(100),nullable=False)
+	phone=Column(VARCHAR(11),nullable=False,primary_key=True)
