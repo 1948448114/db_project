@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-.top{ width:100%; background-color:#234686; padding:20px 0;margin:0 auto; }
+.top{ width:100%; background-color:#234686; padding:40px 0;margin:0 auto; }
 *{ font-size:12px; font-family:"微软雅黑"}
 .logo{margin-left:40px;}
 ul{padding:0;}
@@ -34,7 +34,7 @@ li{list-style:none;}
 .ck p span{ position:absolute; top:30px; left:40px; background-color:#d0d6e4; line-height:30px; padding:0 10px;}
 .ck{clear:both;}
 .srxz{background-color:#f8f8f8; padding-left:40px;}
-input, select{background-color:#f1f1f1; border:1px solid #c1c1c1; padding-left:10px; margin:10px; height:30px; border-radius:3px; min-width:200px;}
+input, select{background-color:#f1f1f1; border:1px solid #c1c1c1; padding-left:10px; margin:10px; height:30px; border-radius:3px; }
 .srxz span{padding-right:5px;}
 .sub{float:right; background-color:#1e4a91; padding:5px 20px; margin-right:30px;  border-radius:3px;}
 .sub a{color:#fff;}
@@ -58,14 +58,12 @@ input, select{background-color:#f1f1f1; border:1px solid #c1c1c1; padding-left:1
 		}
 .inner_content{width:85%; padding-left:40px; }
 .brown{text-align:center}
-
-
-
-
-
-
-
-
+.table_con table{width:100%}
+.table_con table tbody tr td input {width:50px; height:25px; float:left; margin-right:10px;border:0;background:none; line-height:25px; text-align:center}
+.table_con table tbody tr td input:last-child{margin:0}
+.table_con table tbody tr td input.bj_btn{border:solid 1px #0c89ff; color:#0c89ff}
+.table_con table tbody tr td input.sj_btn{border:solid 1px #0c89ff; background:#0c89ff; color:#fff}
+.table_con table tbody tr td input.del_btn{border:solid 1px #f12c0b; background:#f12c0b; color:#fff}
 
 
 
