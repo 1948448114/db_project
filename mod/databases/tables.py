@@ -29,6 +29,13 @@ class Users(Base):
 	email=Column(VARCHAR(50),nullable=False)
 	address=Column(VARCHAR(100),nullable=False)
 	phone=Column(VARCHAR(11),nullable=False,primary_key=True)
+
+class Admin(Base):
+	__tablename__ = 'Admin'
+
+	name = Column(VARCHAR(50),nullable=False,primary_key=True)
+	pwd=Column(VARCHAR(64),nullable=False)
+
 class Orders(Base):
 	__tablename__ = 'Orders'
 
@@ -44,5 +51,12 @@ class Cookies(Base):
 	__tablename__ = 'Cookies'
 
 	id = Column(Integer(),primary_key=True)
-	phone = Column(VARCHAR(11),ForeignKey('Users.phone',ondelete='CASCADE'))
+	phone = Column(VARCHAR(11),ForeignKey('Users.name',ondelete='CASCADE'))
+	cookie = Column(VARCHAR(64))
+
+class AdminCookies(Base):
+	__tablename__ = 'AdminCookies'
+
+	id = Column(Integer(),primary_key=True)
+	name = Column(VARCHAR(11),ForeignKey('Admin.name',ondelete='CASCADE'))
 	cookie = Column(VARCHAR(64))

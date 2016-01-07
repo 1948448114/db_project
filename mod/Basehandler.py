@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 import tornado.web
 import tornado.gen
-from databases.tables import Cookies
+from databases.tables import Cookies,AdminCookies
 from sqlalchemy.orm.exc import NoResultFound
 import json
 
@@ -22,6 +22,14 @@ class BaseHandler(tornado.web.RequestHandler):
                 return False
         else:
             return False
-    
-
+    def get_current_admin(self):
+        admin = self.get_secure_cookie("admin_user")
+        if admin:
+            try:
+                status = self.db.query(AdminCookies).filter(AdminCookies.cookie == admin).one()
+                return status
+            except NoResultFound:
+                return False
+        else:
+            return False
 
