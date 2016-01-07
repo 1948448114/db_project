@@ -9,11 +9,7 @@ var menu = document.getElementById(name+i);
 var medo = document.getElementById(name+i);
 var medo1 = document.getElementById(name+i);
 var medo2 = document.getElementById(name+i);
-var medo3 = document.getElementById(name+i);
-var medo4 = document.getElementById(name+i);
 
-var meduo4 = document.getElementById("con_"+name+"_"+i);
-var meduo3 = document.getElementById("con_"+name+"_"+i);
 var meduo2 = document.getElementById("con_"+name+"_"+i);
 var meduo1 = document.getElementById("con_"+name+"_"+i);
 var menudiv = document.getElementById("con_"+name+"_"+i);
@@ -24,11 +20,7 @@ menu.className="off";
 medo.className="off";
 medo1.className="off";
 medo2.className="off";
-medo3.className="off";
-medo4.className="off";
 
-meduo4.style.display="block";
-meduo3.style.display="block";
 meduo2.style.display="block";
 meduo1.style.display="block";
 meduo.style.display="block";
@@ -41,13 +33,11 @@ else{
 menu.className="";
 medo.className="";
 medo2.className="";
-medo3.className="";
-medo4.className="";
+
 medo1.className="";
 
 meduo1.style.display="none";
-meduo4.style.display="none";
-meduo3.style.display="none";
+
 meduo2.style.display="none"
 meduo.style.display="none";
 menudiv.style.display="none";
@@ -84,8 +74,7 @@ var links = document.getElementById("tab1").getElementsByTagName('li')
 var links = document.getElementById("tab2").getElementsByTagName('dd')
 var links = document.getElementById("tab3").getElementsByTagName('dd')
 var links = document.getElementById("tab4").getElementsByTagName('dd')
-var links = document.getElementById("tab5").getElementsByTagName('dd')
-var links = document.getElementById("tab6").getElementsByTagName('dd')
+
 
 links_len=links.length;
 

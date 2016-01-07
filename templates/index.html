@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>网上书店管理页面</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../static/css/style.css">
 
-<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
 
-<script type="text/javascript" src="../js/date.js"></script>
+<script type="text/javascript" src="../static/js/date.js"></script>
 <script>
 $(document).ready(function(){
 	$("#one1,#one2,#one3,#one4,#one5").click(function(){
@@ -25,16 +25,16 @@ $(document).ready(function(){
   <div class="tab1" id="tab1">
     <div class="menu">
       <ul class="nav">
-        <li id="one0" onclick="setTab('one',6)"><a href="#"><img src="../images/1430958346122214_06.png">
+        <li id="one0" onclick="setTab('one',6)"><a href="#"><img src="../static/images/1430958346122214_06.png">
           <p>首页</p>
           </a></li>
-        <li  id="one1" onclick="setTab('one',1)"><a href="#"><img src="../images/14309583461214_08.png">
+        <li  id="one1" onclick="setTab('one',1)"><a href="#"><img src="../static/images/14309583461214_08.png">
           <p>订单管理</p>
           </a></li> 
-        <li id="one2" onclick="setTab('one',2)"><a href="#"><img src="../images/14309583461214_18.png">
+        <li id="one2" onclick="setTab('one',2)"><a href="#"><img src="../static/images/14309583461214_18.png">
           <p>书籍管理</p>
           </a></li>
-        <li id="one3" onclick="setTab('one',3)"><a href="#"><img src="../images/14309583461214_06.png">
+        <li id="one3" onclick="setTab('one',3)"><a href="#"><img src="../static/images/14309583461214_06.png">
           <p>用户信息管理</p>
           </a></li>
       
@@ -44,8 +44,11 @@ $(document).ready(function(){
 </div>
 <div class="content" id="con_one_6" style="display:block;">
   <div class="meduo">
+
     <div class="hyy">
-      <p>欢迎页</p>
+
+      <p >欢迎使用网上书店后台管理</p>
+      <img id="picpic"  width="30%" src="../static/images/124.png">
     </div>
   </div> 
 </div>
