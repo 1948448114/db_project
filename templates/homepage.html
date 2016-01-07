@@ -1,0 +1,400 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>Online BookStore</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	</head>
+	<body>
+		<header class="header_bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1 class="myh1"><a href="">Online BookStore</a></h1>
+						<h2>我的线上书店</h1>
+					</div>
+				</div>
+			</div>
+		</header>
+		<nav class="navbar navbar-default mynav" id="mynav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img alt="Brand" src="img/book.png">
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="homepage_word"><a href="#">首页</a></li>
+						<li><a href="#">帮助中心</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">登录</a></li>
+								<li><a href="#">注销</a></li>
+								<li><a href="#">我的订单</a></li>
+							</ul>
+						</li>
+						<li><a href="#">购物车</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<label class="label_to_center">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							ISBN
+						</label>
+						<label class="label_to_center">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							作者
+						</label>
+						<label class="label_to_center">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							书籍名称
+						</label>
+						<form class="navbar-form navbar-right" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control myinput" placeholder="搜索书籍">
+							</div>
+							<button type="submit" class="btn btn-default mybtn">搜索</button>
+						</form>
+					</ul>
+					</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			<section id="showpage">
+				<div class="login">
+					<div class="icon-remove myclose"></div>
+					<div class="row firstrow">
+						<div class="col-sm-4 col-sm-offset-2">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入用户名">
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="请输入密码">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-2" style="text-align:center;">
+							<div class="form-group">
+								 <button class="btn btn-danger btn-lg btn-block">登 录</button>
+							</div>
+							<a>忘记密码?</a>
+						</div>
+						<div class="col-sm-4">
+							<div class="form-group">
+								<button class="btn btn-danger btn-lg btn-block">注 册</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网上书店管理页面</title>
+<link rel="stylesheet" href="../static/css/style.css">
+
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="../static/js/date.js"></script>
+<script>
+$(document).ready(function(){
+	$("#one1,#one2,#one3,#one4,#one5").click(function(){
+		$("#con_one_6").css("display","none")
+		})
+	$("#one0").click(function(){
+		$("#con_one_6").css("display","block")
+		})
+	})
+</script>
+</head>
+
+<body>
+<div class="top"> 
+  <div class="tab1" id="tab1">
+    <div class="menu">
+      <ul class="nav">
+        <li id="one0" onclick="setTab('one',6)"><a href="#"><img src="../static/images/1430958346122214_06.png">
+          <p>首页</p>
+          </a></li>
+        <li  id="one1" onclick="setTab('one',1)"><a href="#"><img src="../static/images/14309583461214_08.png">
+          <p>订单管理</p>
+          </a></li> 
+        <li id="one2" onclick="setTab('one',2)"><a href="#"><img src="../static/images/14309583461214_18.png">
+          <p>书籍管理</p>
+          </a></li>
+        <li id="one3" onclick="setTab('one',3)"><a href="#"><img src="../static/images/14309583461214_06.png">
+          <p>用户信息管理</p>
+          </a></li>
+      
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="content" id="con_one_6" style="display:block;">
+  <div class="meduo">
+
+    <div class="hyy">
+
+      <p >欢迎使用网上书店后台管理</p>
+      <img id="picpic"  width="30%" src="../static/images/124.png">
+    </div>
+  </div> 
+</div>
+
+<div class="content" id="con_one_1" style="display:none;">
+  <div class="left-column">
+    <div class="service">
+      <h5>订单管理</h5>
+    </div>
+    <div class="tab2" id="tab2">
+      <dl class="call">
+        <div class="medo">
+          <dt>订单处理</dt>
+          
+          <dd id="column1" onclick="setTab('column',1)"><a href="#">修改订单信息</a></dd>
+          <dd id="column2" onclick="setTab('column',2)"><a href="#">！删除订单！</a></dd>
+           <dt>订单查询</dt>
+          
+          <dd id="column3" onclick="setTab('column',3)" ><a href="#">查看订单信息</a></dd>
+          <dd id="column4" onclick="setTab('column',4)"><a href="#">历史订单信息</a></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+<div class="meduo">
+  <div class="right-content" id="con_column_1">
+    <div class="ck">
+      <p><span>修改订单信息</span></p>
+    </div>
+    <div class="srxz">
+      <p><span>姓名：</span>
+        <input name="姓名" type="text">
+        <span>住址：</span>
+        <input name="电话" type="text">
+        <span>电话：</span>
+        <input type="tel">
+      </p>
+      <p><span>业务分类：</span>
+        <select>
+          <option>报修</option>
+          <option>检测</option>
+        </select>
+        <span><span>紧急程度：</span>
+        <select>
+          <option>着急</option>
+          <option>不着急</option>
+        </select>
+        </span></p>
+      <p><span>业务种类：</span>
+        <select>
+          <option>预设业务</option>
+        </select>
+      </p>
+      <p class="message">
+        <textarea style="margin-left:75px;height:100px; width:500px; border:1px solid #c1c1c1; border-radius:5px; background-color:#f1f1f1;"></textarea>
+      </p>
+  
+      <p><span>接待方式：</span>
+        <select>
+          <option>电话接待</option>
+          <option>前台接待</option>
+        </select>
+      </p>
+    </div>
+    <p class="sub"><a href="#">派单</a></p>
+  </div>
+  <div class="right-content" id="con_column_2" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 2</span>
+    </center>
+  </div>
+  <div class="right-content" id="con_column_3" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 3</span>
+    </center>
+  </div>
+  <div class="right-content" id="con_column_4" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 4</span>
+    </center>
+  </div>
+</div>
+</div>
+<div class="content"id="con_one_2" style="display:none;">
+  <div class="left-column">
+    <div class="service">
+      <h5>书籍管理</h5>
+    </div>
+    <div class="tab3" id="tab3">
+      <dl class="call">
+        <div class="medo medo1">
+          <dt>信息管理</dt>
+          <dd id="colum1" onclick="setTab('colum',1)" ><a href="#">查看书籍信息</a></dd>
+          <dd id="colum2" onclick="setTab('colum',2)"><a href="#">修改书籍信息</a></dd>
+           <dt>库存管理</dt>
+          <dd id="colum3" onclick="setTab('colum',3)"><a href="#">增加书籍</a></dd>
+          <dd id="colum4" onclick="setTab('colum',4)"><a href="#">删除书籍</a></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+<div class="meduo meduo1">
+  <div class="right-content" id="con_colum_1">
+    <center>
+      <div class="table_con">
+             <table>
+      <tr class="tb_title">
+          <td width="10%">ID</td>
+            <td width="30%">商品</td>
+            <td width="12%">价格/库存</td>
+            <td width="12%">评分/权重</td>
+            <td width="10%">特卖</td>
+            <td width="26%">操作</td>
+        </tr>
+        <tr>
+          <td width="10%">445</td>
+            <td width="30%">书1</td>
+            <td width="12%">19/100</td>
+            <td width="12%">78/100</td>
+            <td width="10%">—</td>
+            <td width="26%">
+              <input class="bj_btn" type="button" value="编辑" />
+                <input class="sj_btn" type="button" value="上架" />
+                <input class="del_btn" type="button" value="删除" />
+            </td>
+        </tr>
+        <tr>
+          <td width="10%">445</td>
+            <td width="30%">书2</td>
+            <td width="12%">19/100</td>
+            <td width="12%">78/100</td>
+            <td width="10%">—</td>
+            <td width="26%">
+              <input class="bj_btn" type="button" value="编辑" />
+                <input class="sj_btn" type="button" value="上架" />
+                <input class="del_btn" type="button" value="删除" />
+            </td>
+        </tr>
+        <tr>
+          <td width="10%">445</td>
+            <td width="30%">书3</td>
+            <td width="12%">19/100</td>
+            <td width="12%">78/100</td>
+            <td width="10%">—</td>
+            <td width="26%">
+              <input class="bj_btn" type="button" value="编辑" />
+                <input class="sj_btn" type="button" value="上架" />
+                <input class="del_btn" type="button" value="删除" />
+            </td>
+        </tr>
+    </table>
+  </div>
+    </center>
+  </div>
+  <div class="right-content" id="con_colum_2" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 8</span>
+    </center>
+  </div>
+  <div class="right-content" id="con_colum_3" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 9</span>
+    </center>
+  </div>
+  <div class="right-content" id="con_colum_4" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 10</span>
+    </center>
+  </div>
+</div>
+</div>
+<div class="content"id="con_one_3" style="display:none;">
+  <div class="left-column">
+    <div class="service">
+      <h5>用户管理</h5>
+    </div>
+    <div class="tab4" id="tab4">
+      <dl class="call">
+        <div class="medo medo2">
+          <dt>用户信息管理</dt>
+          <dd id="colun1" onclick="setTab('colun',1)" ><a href="#">查看用户信息</a></dd>
+          <dd id="colun2" onclick="setTab('colun',2)"><a href="#">修改用户信息</a></dd>
+          <dd id="colun3" onclick="setTab('colun',3)"><a href="#">！删除用户！</a></dd>
+
+        </div>
+      </dl>
+    </div>
+  </div>
+
+
+<div class="meduo meduo2">
+  <div class="right-content" id="con_colun_1">
+    <center>
+      <span style="font-size:100px;"> 13</span>
+    </center>
+  </div>
+  <div class="right-content" id="con_colun_2" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 14</span>
+    </center>
+  </div>
+  <div class="right-content" id="con_colun_3" style="display:none">
+    <center>
+      <span style="font-size:100px;"> 15</span>
+    </center>
+  </div>
+
+</div>
+</div>
+
+<div style="text-align:center;">
+<h1>网上书店</h1>
+<h1>管理员</h1>
+</div>
+
+</body>
+</html>
+>>>>>>> origin/master
