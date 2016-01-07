@@ -29,3 +29,14 @@ class Users(Base):
 	email=Column(VARCHAR(50),nullable=False)
 	address=Column(VARCHAR(100),nullable=False)
 	phone=Column(VARCHAR(11),nullable=False,primary_key=True)
+class Orders(Base):
+	__tablename__ = 'Orders'
+
+	orderid = Column(Integer(),nullable=False,primary_key=True)
+	bookid = Column(VARCHAR(13),nullable=False)
+	usered = Column(VARCHAR(50),nullable=False)
+	ordernum = Column(Integer(),nullable=False)
+	ordertime = Column(Datetime(),nullable=False)
+	orderstate = Column(Integer(),nullable=False)
+	bookprice = Column(Float(),nullable=False)
+	
