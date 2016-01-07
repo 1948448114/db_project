@@ -15,7 +15,6 @@ $(document).ready(function(){
 		$(".float_box").hide()
 		}
 	)
-
 }); 
 function tab(a,b,c,d){
 	$("."+a).children(""+b).mouseover(function(){
