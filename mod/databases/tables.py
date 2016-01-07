@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, Integer, VARCHAR,ForeignKey
+from sqlalchemy import Column, Integer, VARCHAR,Float,ForeignKey
 from sqlalchemy.orm import relationship,backref
 from db import Base
 
@@ -12,7 +12,12 @@ class Books(Base):
 	isbn = Column(VARCHAR(13),nullable=False,primary_key=True)
 	name = Column(VARCHAR(50),nullable=False)
 	author = Column(VARCHAR(50),nullable=False)
-	cardnum = Column(VARCHAR(9),nullable=False,unique=True)
-	card_password = Column(VARCHAR(64),nullable=False)
-	salt = Column(VARCHAR(64))
+	price = Column(Float(),nullable=False)
+	soldnum = Column(Integer(),nullable=False)
+	remainnum = Column(Integer(),nullable=False)
+	shelftime = Column(VARCHAR(50),nullable=False)
+	releasetime = Column(VARCHAR(50),nullable=False)
+	active = Column(Integer(1),nullable=False)
+	picture = Column(VARCHAR(50),nullable=False)
+	note = Column(VARCHAR(1024),nullable=False)
 
