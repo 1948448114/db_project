@@ -14,6 +14,8 @@ from mod.databases.db import engine
 
 from mod.user.register import RegisterHandler
 from mod.user.login import LoginHandler
+from mod.book.new_book import NewBookHandler
+from mod.book.hot_book import HotBookHandler
 
 
 define("port", default=8000, help="run on the given port", type=int)
@@ -23,6 +25,8 @@ class Application(tornado.web.Application):
         handlers = [
         	(r'/reg',RegisterHandler),
         	(r'/login',LoginHandler),
+        	(r'/book/new',NewBookHandler),
+        	(r'/book/hot',HotBookHandler),
             (r'/.*', PageNotFoundHandler)
             ]
         settings = dict(
