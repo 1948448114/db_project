@@ -171,7 +171,7 @@ option{
 	margin:40px auto 20px auto;
 	border-radius: 4px;
 }
-.bookTabs,.chart_div,.info_div span{
+.bookTabs span,.chart_div span,.info_div span{
 	color: #663300;
 }
 .bookTabs a{
@@ -244,7 +244,7 @@ option{
 	font-size: 1rem;
 }
 .info_div .row{
-	padding: 5px 2px;
+	padding: 3px 2px 8px 2px;
 }
 
 
