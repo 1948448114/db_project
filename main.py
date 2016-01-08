@@ -27,6 +27,7 @@ class Application(tornado.web.Application):
         	(r'/login',LoginHandler),
         	(r'/book/new',NewBookHandler),
         	(r'/book/hot',HotBookHandler),
+            (r'/templates/homepage',HomePageHandler),
             (r'/.*', PageNotFoundHandler)
             ]
         settings = dict(
@@ -47,6 +48,9 @@ class PageNotFoundHandler(tornado.web.RequestHandler):
         self.render('404.html')
     def post(self):
         self.render('404.html')
+class HomePageHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render('homepage.html')
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
