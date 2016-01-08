@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-module="">
+	<head>
+		<meta charset="utf-8">
+		<title>Online BookStore</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/index.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/font-awesome.css">
+		<link rel="icon" href="../static/img/logo.ico" type="image/x-icon">
+		<script type="text/javascript" src="../static/js/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="../static/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../static/js/az.js"></script>
+		{% block header %}
+        {% end %}
+	</head>
+	<body>
+		<div class="header_bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1 class="myh1"><a href="">Online BookStore</a></h1>
+						<h2>我的线上书店</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-default mynav" id="mynav">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">
+						<img alt="Brand" src="../static/img/books_2.png">
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="homepage_word"><a href="/">首页</a></li>
+						<li><a href="#">帮助中心</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								{% if not user %}
+									<li><a id="tologin">登录</a></li>
+								{% else %}
+									<li><a id="tonewPwd">修改密码</a></li>
+									<li><a id="">注销</a></li>
+									<li><a href="#">我的订单</a></li>
+								{% end %}
+							</ul>
+						</li>
+						<li><a href="shoppingchart">我的购物车</a></li>
+						<li><a href="#">管理员</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<label class="label_to_center">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							ISBN
+						</label>
+						<label class="label_to_center">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							作者
+						</label>
+						<label class="label_to_center">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							书籍名称
+						</label>
+						<form class="navbar-form navbar-right" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control myinput" placeholder="搜索书籍">
+							</div>
+							<button type="submit" class="btn btn-default mybtn">搜索</button>
+						</form>
+					</ul>
+					</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+				<section id="loginStuff">
+					<div class="login">
+						<div class="icon-remove myclose" id="close_login"></div>
+						<div class="row firstrow">
+							<div class="col-sm-4 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-phone-sign"></label>
+									<input type="text" class="form-control" placeholder="请输入您的手机号码">
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="my-form-group">
+									<label class="input_icon icon-key"></label>
+									<input type="password" class="form-control" placeholder="请输入您的密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-2" style="text-align:center;">
+								<div class="button_margin">
+									<button class="btn btn-danger btn-lg btn-block">登 录</button>
+								</div>
+								<a id="toforget">忘记密码?</a>
+							</div>
+							<div class="col-sm-4">
+								<div class="button_margin">
+									<button class="btn btn-danger btn-lg btn-block" id="tosignup">注 册</button>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<p>success or error</p>
+						</div>
+					</div>
+					<div class="signup">
+						<div class="icon-remove myclose" id="close_signup"></div>
+						<div class="row firstrow">
+							<div class="col-sm-4 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-user"></label>
+									<input type="text" class="form-control" placeholder="请输入用户名">
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="my-form-group">
+									<label class="input_icon icon-key"></label>
+									<input type="password" class="form-control" placeholder="请输入至少六位的密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-envelope"></label>
+									<input type="text" class="form-control" placeholder="请输入有效邮箱地址">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-phone-sign"></label>
+									<input type="text" class="form-control" placeholder="请输入有效手机号码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon_textarea icon-gift"></label>
+									<textarea rows="3" cols="20" class="form-control" placeholder="请输入有效收货地址">
+									</textarea>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-2">
+								<div class="button_margin">
+									<select class="form-control" placeholder="请输入用户名">
+										<optgroup LABEL="安全问题">安全问题
+											<option id="q2">您小时候最喜欢哪一本书?</option>
+											<option id="q1">您的理想工作是什么?</option>
+											<option id="q3">您第一次坐飞机是去哪里</option>
+											<option id="q4">您少年时代最好的朋友叫什么名字?</option>
+											<option id="q5">您的第一个宠物叫什么名字?</option>
+										</optgroup>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="my-form-group">
+									<label class="input_icon icon-cog"></label>
+									<input type="text" class="form-control" placeholder="请输入您的答案">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-4">
+								<div class="button_margin">
+									<button class="btn btn-danger btn-lg btn-block" style="margin-bottom:30px;">注 册</button>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<p>success or error</p>
+						</div>
+					</div>
+					<div class="verify">
+						<div class="icon-remove myclose" id="close_verify"></div>
+						<div class="firstrow row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="button_margin">
+									<select class="form-control" placeholder="请输入用户名">
+										<optgroup LABEL="安全问题">安全问题
+											<option id="q2">您小时候最喜欢哪一本书?</option>
+											<option id="q1">您的理想工作是什么?</option>
+											<option id="q3">您第一次坐飞机是去哪里</option>
+											<option id="q4">您少年时代最好的朋友叫什么名字?</option>
+											<option id="q5">您的第一个宠物叫什么名字?</option>
+										</optgroup>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-cog"></label>
+									<input type="text" class="form-control" placeholder="请输入您的答案">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-4">
+								<div class="button_margin">
+									<button id="toChangePwd" class="btn btn-danger btn-lg btn-block" style="margin-bottom:30px;">提 交</button>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<p>success or error</p>
+						</div>
+					</div>
+					<div class="changePwd">
+						<div class="icon-remove myclose" id="close_changePwd"></div>
+						<div class="firstrow row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-key"></label>
+									<input type="password" class="form-control" placeholder="请输入至少六位的密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-key"></label>
+									<input type="password" class="form-control" placeholder="请确认密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-4">
+								<div class="button_margin">
+									<button  class="btn btn-danger btn-lg btn-block" style="margin-bottom:30px;">提 交</button>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<p>success or error</p>
+						</div>
+					</div>
+					<div class="newPwd">
+						<div class="icon-remove myclose" id="close_newPwd"></div>
+						<div class="firstrow row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-key"></label>
+									<input type="password" class="form-control" placeholder="请输入旧密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-certificate"></label>
+									<input type="password" class="form-control" placeholder="请输入至少六位的新密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2">
+								<div class="my-form-group">
+									<label class="input_icon icon-certificate"></label>
+									<input type="password" class="form-control" placeholder="请确认密码">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-4">
+								<div class="button_margin">
+									<button  class="btn btn-danger btn-lg btn-block" style="margin-bottom:30px;">确 认</button>
+								</div>
+							</div>
+						</div>
+						<div class="alert alert-info alert-dismissible" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<p>success or error</p>
+						</div>
+					</div>
+				</section>
+    {% block body %}
+    {% end %}
