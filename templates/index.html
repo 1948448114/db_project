@@ -295,5 +295,10 @@
 <div style="text-align:center;">
 <h4>网上书店 · 管理员界面 · 71113106_71113211_71Y13123</h4>
 </div>
+{% if user %}
+  <input type="hidden" value="{{user.name}}">
+{% else %}
+  <input type="hidden" value="">
+{% end %}
 </body>
 </html>
