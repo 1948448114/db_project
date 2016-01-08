@@ -14,8 +14,15 @@ from mod.databases.db import engine
 
 from mod.user.register import RegisterHandler
 from mod.user.login import LoginHandler
+from mod.user.admin_login import AdminLoginHandler
+from mod.user.all_user import AllUserHandler
+from mod.user.delete_user import DeleteUserHandler
+
 from mod.book.new_book import NewBookHandler
-from mod.book.hot_book import HotBookHandler
+from mod.book.delete_book import DeleteBookHandler
+from mod.book.all_book import AllBookHandler
+from mod.book.update_book import UpdateBookHandler
+
 
 
 define("port", default=8000, help="run on the given port", type=int)
@@ -23,12 +30,16 @@ define("port", default=8000, help="run on the given port", type=int)
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-        	(r'/reg',RegisterHandler),
-        	(r'/login',LoginHandler),
-        	(r'/book/new',NewBookHandler),
-        	(r'/book/hot',HotBookHandler),
-            (r'/.*', PageNotFoundHandler),
-           
+            (r'/reg',RegisterHandler),#注册
+            (r'/login',LoginHandler),#登录
+            (r'/admin/login',AdminLoginHandler),#管理员登录
+            (r'/user/remove',DeleteUserHandler),#管理员删除用户
+            (r'/user/all',AllUserHandler),#管理员删除用户
+            (r'/book/all',AllBookHandler),#所有书籍
+            (r'/book/new',NewBookHandler),#添加书籍
+            (r'/book/remove',DeleteBookHandler),#删除图书
+            (r'/book/update',UpdateBookHandler),#更新图书
+            (r'/.*', PageNotFoundHandler)
             ]
         settings = dict(
             cookie_secret="8DB90KLP8371B5AEAC5E64C6042415EF",
@@ -56,3 +67,5 @@ if __name__ == "__main__":
         tornado.ioloop.IOLoop.instance().start()
     except KeyboardInterrupt:
         tornado.ioloop.IOLoop.instance().stop()
+Status API Training Shop Blog About Pricing
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
