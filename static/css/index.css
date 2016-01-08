@@ -164,44 +164,88 @@ option{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-.bookTabs,.chart_div{
+.bookTabs,.chart_div,.info_div{
 	background-color: #fff;
 	/*min-height: 200px;*/
 	width: 70%;
-	margin:40px auto;
+	margin:40px auto 20px auto;
 	border-radius: 4px;
+}
+.bookTabs,.chart_div,.info_div span{
+	color: #663300;
 }
 .bookTabs a{
 	color: #663300;
 }
-.list-group-item{
+.bookTabs .list-group-item{
 	border-bottom: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 	/*border-right: 1px solid #ddd;*/
 	border-radius: 0px;
 	padding-bottom: 20px;
 }
+.bookTabs .row{
+	padding: 4px 5px;
+}
 .bookTabs img{
-	width: 30%;
+	width: 50%;
 	margin-left: 40px;
+}
+.bookImg{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 20%;
 }
 .bookInfo{
 	margin-left: 40px;
 	margin-right: 60px;
 	display: none;
 }
-.bookInfo h5{
-	margin-bottom: 2px;
+.chart_div .list-group-item{
+	border-bottom: 1px solid #ddd;
+	border-left: 0px;
+	/*border-right: 1px solid #ddd;*/
+	border-radius: 0px;
+	padding-bottom: 45px;
 }
-
-
-
-
-
-
-
-
-
+.chart_div,.info_div h4{
+	padding: 10px auto;
+	text-align: center;
+}
+.chart_div img{
+	width: 60%;
+}
+.chart_div .row{
+	height: 50px;
+}
+.chartImg{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 13%;
+}
+.checkBox{
+	text-align: center;
+	margin: 25px auto;
+}
+.chart_div label{
+	cursor: pointer;
+	font-size: 1rem;
+}
+.confirmChart{
+	margin: auto;
+	text-align: center;
+	width: 30%;
+}
+.confirmChart .btn{
+	width: 100%;
+}
+.info_div{
+	margin-top: 0px;
+	font-size: 1rem;
+}
+.info_div .row{
+	padding: 5px 2px;
+}
 
 
 

@@ -53,6 +53,7 @@ class Application(tornado.web.Application):
             (r'/order/update',UpdateOrderHandler),#获取个人订单
             (r'/header',HomePageHandler),#header
             (r'/shoppingchart',ShopChartHandler),#购物车
+            (r'/confirmOrder',ConfirmOrderHandler),#确认订单
             (r'/.*', PageNotFoundHandler)
             ]
         settings = dict(
@@ -85,6 +86,10 @@ class ShopChartHandler(tornado.web.RequestHandler):
     def get(self):
         user = self.get_current_user()
         self.render('shoppingchart.html',user=user)
+class ConfirmOrderHandler(tornado.web.RequestHandler):
+    def get(self):
+        user = self.get_current_user()
+        self.render('confirmOrder.html',user=user)
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)

@@ -69,8 +69,23 @@ $('.showInfo').click(function() {
 	$('.bookInfo').toggle();});
 })
 
-
-
+function addNum(){
+	var number_temp=$('#id4').html();
+	var number=parseInt(number_temp);
+	$('#id4').html(++number);
+}
+function cutNum(){
+	var number_temp=$('#id4').html();
+	var number=parseInt(number_temp);
+	if(number<=0){
+		$('#id4').html(number);
+	}
+	else
+	$('#id4').html(--number);
+}
+function deleteChart(){
+	$(event.target).closest('.list-group-item').remove();
+}
 
 
 
