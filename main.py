@@ -12,6 +12,8 @@ from tornado.options import define, options
 from sqlalchemy.orm import scoped_session, sessionmaker
 from mod.databases.db import engine
 
+
+from mod.Basehandler import BaseHandler
 from mod.user.register import RegisterHandler
 from mod.user.login import LoginHandler
 from mod.user.admin_login import AdminLoginHandler
@@ -30,6 +32,7 @@ define("port", default=8000, help="run on the given port", type=int)
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
+            (r'/',HomePageHandler),#主页
             (r'/reg',RegisterHandler),#注册
             (r'/login',LoginHandler),#登录
             (r'/admin/login',AdminLoginHandler),#管理员登录
@@ -59,7 +62,10 @@ class PageNotFoundHandler(tornado.web.RequestHandler):
         self.render('404.html')
     def post(self):
         self.render('404.html')
-
+class HomePageHandler(BaseHandler):
+    def get(self):
+        user = self.get_current_user()
+        self.render('homepage.html',user=user)
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)
@@ -67,5 +73,3 @@ if __name__ == "__main__":
         tornado.ioloop.IOLoop.instance().start()
     except KeyboardInterrupt:
         tornado.ioloop.IOLoop.instance().stop()
-Status API Training Shop Blog About Pricing
-© 2016 GitHub, Inc. Terms Privacy Security Contact Help

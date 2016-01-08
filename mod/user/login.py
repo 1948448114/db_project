@@ -24,7 +24,7 @@ class LoginHandler(BaseHandler):
 			sql = u"select pwd from Users where phone='%s'" % phone
 			try:
 				result = self.db.execute(sql).fetchone()
-				if result.pwd != pwd:
+				if not result or result.pwd != pwd:
 					retjson['code'] = 400
 					retjson['content'] = u'用户名密码不正确'
 				else:

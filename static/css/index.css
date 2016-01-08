@@ -53,7 +53,7 @@ color: #999;
 	width: 46px;
 }
 #mynav .navbar-brand{
-	padding: 2px 15px;
+	padding: 4px 15px;
 }
 .nav > li > a{
 	padding: 15px 30px;
@@ -101,11 +101,12 @@ color: #999;
 	box-shadow: none;
 	border: none;
 }
-.login{
+.login,.signup{
 	background-color: #fff;
 	min-height: 200px;
-	width: 80%;
+	width: 70%;
 	margin:20px auto;
+	display: none;
 }
 .firstrow{
 	padding-top: 45px;
@@ -126,6 +127,9 @@ color: #999;
 }
 .myclose:hover{
 	color: #F33F3F;
+}
+.alert{
+	display: none;
 }
 
 
