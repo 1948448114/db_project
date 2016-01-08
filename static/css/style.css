@@ -17,9 +17,13 @@ li{list-style:none;}
     top: 0;
     right: 0;}
 .nav a{color:#fff;}
+.rowad{    margin-right: 0px !important;
+    margin-left: 0px !important;}
 .nav li{float:left; margin-right:40px;}
-.hyy p{text-align:center; font-size:50px; color:red; padding-top:30px;    margin-bottom: 0px;}
-#picpic {text-align: left;}
+.hyy p{text-align:center; font-size:50px; color:#3399fe; padding-top:30px;    margin-bottom: 0px;}
+.hyy h3{margin-top:110px;margin-bottom:20px;}
+.picpic{margin-top:100px;}
+.index_login{margin-bottom:100px;}
 .content{ width:100%;margin:0 auto; position:relative;}
 .left-column{width:15%; text-align:center; float:left; background-color:#e1e7f5; height:680px;}
 .left-column h5{color:#fff; background-color:#3399fe; font-size:18px; border-radius:10px; margin:0 10px; padding:4px 5px; height:20px; line-height:18px;}
