@@ -30,8 +30,8 @@ define("port", default=8000, help="run on the given port", type=int)
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-        	(r'/reg',RegisterHandler),#注册
-        	(r'/login',LoginHandler),#登录
+        	(r'/user/reg',RegisterHandler),#注册
+        	(r'/user/login',LoginHandler),#登录
         	(r'/admin/login',AdminLoginHandler),#管理员登录
         	(r'/user/remove',DeleteUserHandler),#管理员删除用户
         	(r'/user/all',AllUserHandler),#管理员删除用户
