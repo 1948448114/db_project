@@ -27,8 +27,8 @@ class Application(tornado.web.Application):
         	(r'/login',LoginHandler),
         	(r'/book/new',NewBookHandler),
         	(r'/book/hot',HotBookHandler),
-            (r'/templates/homepage',HomePageHandler),
-            (r'/.*', PageNotFoundHandler)
+            (r'/.*', PageNotFoundHandler),
+           
             ]
         settings = dict(
             cookie_secret="8DB90KLP8371B5AEAC5E64C6042415EF",
@@ -48,9 +48,6 @@ class PageNotFoundHandler(tornado.web.RequestHandler):
         self.render('404.html')
     def post(self):
         self.render('404.html')
-class HomePageHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.render('homepage.html')
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()

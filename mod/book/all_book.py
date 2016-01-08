@@ -6,28 +6,22 @@ from ..databases.tables import Books
 from ..Basehandler import BaseHandler
 from sqlalchemy.exc import IntegrityError
 import json,time,string
-import hashlib,uuid,traceback
-import time
 from new_book import change_time
 
-class HotBookHandler(BaseHandler):
+class AllBookHandler(BaseHandler):
 	def post(self):
 		retjson = {'code':200,'content':'ok'}
 		try:
-			page_size = self.get_argument('pagesize',default=10)
-			page_number = self.get_argument('pagenumber',default=1)
-			if not (page_size and page_number):
-				retjson['code'] = 400
-				retjson['content'] = u"参数缺少"
-			else:
-				start_number = (int(page_number)-1)*int(page_size)
-				end_number = start_number+int(page_size);
-				sql = u"select * from Books order by releasetime DESC"
-				result = self.db.execute(sql).fetchall()[start_number:end_number]
-				content = []
-				retjson['number'] = len(result)
-				for i in result:
-					book = {
+			pagesize = self.get_argument('pagesize',default=10)
+			pagenumber = self.get_argument('pagenumber',default=1)
+			start_number = (int(pagenumber)-1)*int(pagesize)
+			all_number = self.db.execute("select count(*) as number from Books").fetchone().number
+			retjson['number'] = all_number
+			sql = "select * from Books order by releasetime DESC limit %d,%d" % (start_number,int(pagesize))
+			result = self.db.execute(sql).fetchall()
+			content = []
+			for i in result:
+				book = {
 						'isbn':i.isbn,
 						'name':i.name,
 						'author':i.author,
@@ -40,11 +34,11 @@ class HotBookHandler(BaseHandler):
 						'picture':i.picture,
 						'note':i.note
 					}
-					content.append(book)
-				retjson['content'] = content
+				content.append(book)
+			retjson['content'] = content
 		except Exception,e:
+			self.db.rollback()
 			retjson['code'] = 500
 			retjson['content'] = str(e)
 		ret = json.dumps(retjson,ensure_ascii=False, indent=2)
 		self.write(ret)
-		
