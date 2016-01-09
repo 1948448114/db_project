@@ -1,19 +1,19 @@
 $(function(){
-	$.ajax({
-		url: '/user/login',
-		type: 'POST',
-		dataType: 'json',
-		data: {phone: '15651918580',pwd:'084358'},
-	})
-	.done(function(data) {
-		console.log(data);
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
+	// $.ajax({
+	// 	url: '/user/login',
+	// 	type: 'POST',
+	// 	dataType: 'json',
+	// 	data: {phone: '15651918580',pwd:'084358'},
+	// })
+	// .done(function(data) {
+	// 	console.log(data);
+	// })
+	// .fail(function() {
+	// 	console.log("error");
+	// })
+	// .always(function() {
+	// 	console.log("complete");
+	// });
 $('#safeSelect').click(function(event) {
 	if($('#safeSelect').val()==0){
 		$('#q0').removeAttr("selected");
@@ -67,6 +67,45 @@ $('#toChangePwd').click(function(event) {
 //显示书籍简介
 $('.showInfo').click(function() {
 	$('.bookInfo').toggle();});
+//登录
+$('#login_btn').click(function(event) {
+	var phone=$('#login_phone').val();
+	var pwd=$('#login_pwd').val();
+	$.ajax({
+		url: '/user/login',
+		type: 'POST',
+		dataType: 'json',
+		data: {phone: phone,pwd:pwd},
+	})
+	.done(function() {
+		console.log();
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function(data) {
+		console.log(data);
+		$("#login_alert").show();
+		if(data.code==200){
+		$('#login_alert>p').html("登陆成功");
+		$('#login_phone').val('');
+		$('#login_pwd').val('');
+			setTimeout(function(){
+			$("#login_alert").hide();
+			$(".login").hide();
+			location.reload(); 
+			},1000);
+		}
+		else
+		$('#login_alert>p').html(data.content);
+	});
+	
+});
+//注销
+$('#logout').click(function(event) {
+	$.cookie("username",null);
+	location.reload(); 
+});
 })
 
 function addNum(){
