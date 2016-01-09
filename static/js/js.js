@@ -55,8 +55,8 @@ $(document).ready(function() {
 	$("#deletebook").click(function() {
 		deletebook();
 	})
-	$("#deleteorder").click(function() {
-		deleteorder();
+	$("#findorder").click(function() {
+		findorder();
 	})
 
 
@@ -115,7 +115,38 @@ function allbook() {
 			console.log("complete");
 		});
 }
-
+function allorder() {
+	$.ajax({
+			url: '/order/all',
+			type: 'POST',
+			dataType: 'json',
+		})
+		.done(function(data) {
+			console.log(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
+function alluser() {
+	$.ajax({
+			url: '/user/all',
+			type: 'POST',
+			dataType: 'json',
+		})
+		.done(function(data) {
+			console.log(data);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
 function addbook() {
 	var book_isbn = $("#book_isbn").val();
 	var book_name = $("#book_name").val();
@@ -182,26 +213,3 @@ function deletebook() {
 		});
 }
 
-function deleteorder() {
-	var order_id = $("#order_delete").val();
-
-
-	$.ajax({
-			url: '/order/delete',
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				orderid: order_id,
-			},
-		})
-		.done(function(data) {
-			console.log(data);
-			alert(data["content"]);
-		})
-		.fail(function() {
-			console.log("error");
-		})
-		.always(function() {
-			console.log("complete");
-		});
-}
