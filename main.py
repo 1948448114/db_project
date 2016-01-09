@@ -31,6 +31,7 @@ from mod.order.delete_order import DeleteOrderHandler
 from mod.order.get_order import GetOrderHandler
 from mod.order.update_order import UpdateOrderHandler
 from mod.order.all_order import AllOrderHandler
+from mod.order.get_order import FindOrderHandler
 
 
 define("port", default=8000, help="run on the given port", type=int)
@@ -57,6 +58,7 @@ class Application(tornado.web.Application):
             (r'/order/get',GetOrderHandler),#获取个人订单
             (r'/order/update',UpdateOrderHandler),#更改订单状态
             (r'/order/all',AllOrderHandler),#管理员获取所有已完成订单
+            (r'/order/find',FindOrderHandler),
             (r'/header',HomePageHandler),#header
             (r'/shoppingchart',ShopChartHandler),#购物车
             (r'/confirmOrder',ConfirmOrderHandler),#确认订单
