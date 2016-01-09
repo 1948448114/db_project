@@ -193,7 +193,7 @@ option{
 .bookTabs .list-group-item:last-child{
 	border-left: 0px;
 	border-radius: 0px;
-	border-bottom: 0px solid #ddd;
+	border-bottom: 1px solid #ddd;
 	padding-bottom: 20px;
 }
 .bookTabs .row{
@@ -273,12 +273,7 @@ option{
 }
 .page{
 	background: none;
-}
-.nextp{
-	
-}
-.lastp{
-	
+	padding:0px 5px 30px 5px!important;
 }
 /*——————————————————————————————订单——————————————————————————————*/
 #orders span{
