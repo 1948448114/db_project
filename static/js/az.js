@@ -44,6 +44,12 @@ function getbookInfo() {
 			var result = "";
 			var homeTemplate = constant_homeTemplate;
 			for (var i = 0; i < data.content.length; i++) {
+				if(data.content[i].active==0){
+					data.content[i].active="下架";
+				}
+				else{
+					data.content[i].active="上架";
+				}
 				result += homeTemplate.format({
 					picture: data.content[i].picture,
 					name: data.content[i].name,
