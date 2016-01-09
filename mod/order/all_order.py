@@ -17,12 +17,12 @@ class AllOrderHandler(BaseHandler):
 				retjson['code'] = 400
 				retjson['content'] = u'请先登录'
 			else:
-				pagesize = self.get_argument('pagesize',default=10)
+				pagesize = self.get_argument('pagesize',default=100)
 				pagenumber = self.get_argument('pagenumber',default=1)
 				start_number = (int(pagenumber)-1)*int(pagesize)
-				all_number = self.db.execute("select count(*) as number from Orders where orderstate=1").fetchone().number
+				all_number = self.db.execute("select count(*) as number from Orders").fetchone().number
 				retjson['number'] = all_number
-				sql = "select * from Orders where orderstate=1 order by ordertime DESC limit %d,%d" %(start_number,int(pagesize))
+				sql = "select * from Orders  order by ordertime DESC limit %d,%d" %(start_number,int(pagesize))
 				result = self.db.execute(sql).fetchall()
 				content = []
 				for i in result:

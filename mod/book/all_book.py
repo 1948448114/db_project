@@ -12,7 +12,7 @@ class AllBookHandler(BaseHandler):
 	def post(self):
 		retjson = {'code':200,'content':'ok'}
 		try:
-			pagesize = self.get_argument('pagesize',default=10)
+			pagesize = self.get_argument('pagesize',default=100)
 			pagenumber = self.get_argument('pagenumber',default=1)
 			start_number = (int(pagenumber)-1)*int(pagesize)
 			all_number = self.db.execute("select count(*) as number from Books").fetchone().number

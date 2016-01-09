@@ -164,11 +164,12 @@ function allorder() {
 			dataType: 'json',
 		})
 		.done(function(data) {
+			result = {1:"下单成功",0:"订单取消"}
 			console.log(data);
 			if (data['code'] == 200) {
 				var htmlInsert = "<tr class='addline tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISDN</td><td class='col-sm-2'>用户号</td><td class = 'col-sm-1'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-1'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
 				for (var i = 0; i < data['content'].length; i++) {
-					htmlInsert += "<tr class='addline tb_title row'> <td class='col-sm-3'>" + data['content'][i]['orderid'] + " </td> <td class='col-sm-1'>" + data['content'][i]['isbn'] + "</td> <td class='col-sm-2'>" + data['content'][i]['phone'] + "</td> <td class='col-sm-1'>" + data['content'][i]['ordernum'] + " </td> <td class='col-sm-2'>" + data['content'][i]['ordertime'] + " </td> <td class='col-sm-1'>" + data['content'][i]['orderstate'] + " </td> <td class='col-sm-2'>" + data['content'][i]['bookprice'] + "</td > </tr>";
+					htmlInsert += "<tr class='addline tb_title row'> <td class='col-sm-3'>" + data['content'][i]['orderid'] + " </td> <td class='col-sm-1'>" + data['content'][i]['isbn'] + "</td> <td class='col-sm-2'>" + data['content'][i]['phone'] + "</td> <td class='col-sm-1'>" + data['content'][i]['ordernum'] + " </td> <td class='col-sm-2'>" + data['content'][i]['ordertime'] + " </td> <td class='col-sm-1'>" + result[data['content'][i]['orderstate']] + " </td> <td class='col-sm-2'>" + data['content'][i]['bookprice'] + "</td > </tr>";
 				}
 
 				$("#allorder").html(htmlInsert);

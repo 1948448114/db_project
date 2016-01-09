@@ -16,7 +16,7 @@ class AllUserHandler(BaseHandler):
 				retjson['code'] = 400
 				retjson['content'] = u'请先登录'
 			else:
-				pagesize = self.get_argument('pagesize',default=10)
+				pagesize = self.get_argument('pagesize',default=100)
 				pagenumber = self.get_argument('pagenumber',default=1)
 				start_number = (int(pagenumber)-1)*int(pagesize)
 				end_number = start_number+int(pagesize);
