@@ -39,6 +39,7 @@ function getbookInfo() {
 			},
 		})
 		.done(function(data) {
+			console.log(data);
 			global_pagesize = data.number;
 			var result = "";
 			var homeTemplate = constant_homeTemplate;
@@ -212,25 +213,30 @@ $(function() {
 //————————————下一页————————————
 function nextp() {
 	currentpage++;
-	if (currentpage * 5 > global_pagesize) {
+	if ((currentpage-1) * 5 > global_pagesize) {
+		currentpage--;
 		$('#home_alert').show();
 		$('#home_alert>p').html("已经到最后一页了...别戳了");
+		setTimeout(function(){$('#home_alert').hide();},3000);
 	} else {
 		$('#home_alert').hide();
 		getbookInfo();
 	}
+	console.log(currentpage);
 }
 //————————————上一页————————————
 function lastp(){
 	console.log("shangyiye");
-	currentpage--;
-	if (currentpage<=0) {
+	if (currentpage<=1) {
 		$('#home_alert').show();
 		$('#home_alert>p').html("已经到第一页了...别戳了");
+		setTimeout(function(){$('#home_alert').hide();},3000);
 	} else {
+		currentpage--;
 		$('#home_alert').hide();
 		getbookInfo();
 	}
+	console.log(currentpage);
 }
 //显示书籍详情
 function showInfo() {
