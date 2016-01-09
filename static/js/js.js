@@ -49,13 +49,17 @@ $(document).ready(function() {
 	$("#submit").click(function() {
 		checkuser();
 	})
-		$("#addbook").click(function() {
+	$("#addbook").click(function() {
 		addbook();
 	})
-				$("#deletebook").click(function() {
+	$("#deletebook").click(function() {
 		deletebook();
 	})
-		
+	$("#deleteorder").click(function() {
+		deleteorder();
+	})
+
+
 });
 
 function tab(a, b, c, d) {
@@ -124,22 +128,22 @@ function addbook() {
 	var book_active = $("#book_active ").val();
 	var book_pic = $("#book_pic  ").val();
 
-	
+
 	$.ajax({
 			url: '/book/new',
 			type: 'POST',
 			dataType: 'json',
 			data: {
-				isbn:book_isbn,
-				name:book_name,
-				author:book_author,
-				price:book_price,
-				remainnum:book_remainnum,
-				shelftime:book_shelftime,
-				releasetime:book_time,
-				active:book_active ,
-				picture:book_pic,
-				note:book_note ,
+				isbn: book_isbn,
+				name: book_name,
+				author: book_author,
+				price: book_price,
+				remainnum: book_remainnum,
+				shelftime: book_shelftime,
+				releasetime: book_time,
+				active: book_active,
+				picture: book_pic,
+				note: book_note,
 			},
 		})
 		.done(function(data) {
@@ -157,13 +161,37 @@ function addbook() {
 function deletebook() {
 	var book_isbn = $("#book_isbn_delete").val();
 
-	
+
 	$.ajax({
 			url: '/book/remove',
 			type: 'POST',
 			dataType: 'json',
 			data: {
-				isbn:book_isbn,
+				isbn: book_isbn,
+			},
+		})
+		.done(function(data) {
+			console.log(data);
+			alert(data["content"]);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
+
+function deleteorder() {
+	var order_id = $("#order_delete").val();
+
+
+	$.ajax({
+			url: '/order/delete',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				orderid: order_id,
 			},
 		})
 		.done(function(data) {
