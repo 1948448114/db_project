@@ -51,7 +51,7 @@ class Cookies(Base):
 	__tablename__ = 'Cookies'
 
 	id = Column(Integer(),primary_key=True)
-	phone = Column(VARCHAR(11),ForeignKey('Users.name',ondelete='CASCADE'))
+	phone = Column(VARCHAR(11),ForeignKey('Users.phone',ondelete='CASCADE'))
 	cookie = Column(VARCHAR(64))
 
 class AdminCookies(Base):
@@ -60,3 +60,15 @@ class AdminCookies(Base):
 	id = Column(Integer(),primary_key=True)
 	name = Column(VARCHAR(11),ForeignKey('Admin.name',ondelete='CASCADE'))
 	cookie = Column(VARCHAR(64))
+
+class Question(Base):
+	__tablename__ = 'question'
+
+	id = Column(Integer(),primary_key=True)
+	phone = Column(VARCHAR(11),ForeignKey('Users.phone',ondelete='CASCADE'))
+	q1 = Column(VARCHAR(64))
+	q2 = Column(VARCHAR(64))
+	q3 = Column(VARCHAR(64))
+	q4 = Column(VARCHAR(64))
+	q5 = Column(VARCHAR(64))
+

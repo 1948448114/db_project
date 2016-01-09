@@ -3,7 +3,7 @@
 
 import tornado.web
 import tornado.gen
-from ..databases.tables import Users,Cookies
+from ..databases.tables import Users,Cookies,Question
 from ..Basehandler import BaseHandler
 import json,time,string
 from sqlalchemy.exc import IntegrityError
@@ -22,6 +22,11 @@ class RegisterHandler(BaseHandler):
 		email = self.get_argument('email',default=None)
 		address = self.get_argument('address',default=None)
 		phone = self.get_argument('phone',default=None)
+		q1 = self.get_argument('q1',default="")
+		q2 = self.get_argument('q2',default="")
+		q3 = self.get_argument('q3',default="")
+		q4 = self.get_argument('q4',default="")
+		q5 = self.get_argument('q5',default="")
 		if not (name and pwd and email and address and phone):
 			retjson['code'] = 400
 			retjson['content'] = u"参数缺少"
@@ -35,6 +40,9 @@ class RegisterHandler(BaseHandler):
 					self.set_secure_cookie("username",str(cookie_value),expires_days=30,expires=int(time())+2592000)
 					cookie = Cookies(phone = phone,cookie = cookie_value)
 					self.db.add(cookie)
+					self.db.commit()
+					sql = "insert into question values('%s','%s','%s','%s','%s')" %(q1,q2,q3,q4,q5)
+					self.db.execute(sql)
 					self.db.commit()
 				else:
 					retjson['code'] = 500
