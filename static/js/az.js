@@ -214,9 +214,21 @@ function nextp() {
 	currentpage++;
 	if (currentpage * 5 > global_pagesize) {
 		$('#home_alert').show();
-		$('#home_alert>p').html("已经为最后一页...别戳了");
+		$('#home_alert>p').html("已经到最后一页了...别戳了");
 	} else {
-		console.log(currentpage);
+		$('#home_alert').hide();
+		getbookInfo();
+	}
+}
+//————————————上一页————————————
+function lastp(){
+	console.log("shangyiye");
+	currentpage--;
+	if (currentpage<=0) {
+		$('#home_alert').show();
+		$('#home_alert>p').html("已经到第一页了...别戳了");
+	} else {
+		$('#home_alert').hide();
 		getbookInfo();
 	}
 }
