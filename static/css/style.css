@@ -72,7 +72,14 @@ input, select{background-color:#f1f1f1; border:1px solid #c1c1c1; padding-left:1
 
 
 
-
-
+.add_book_info {
+	text-align:left  !important;
+	font-size: 14px  !important;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+.book_info input{
+	padding: 6px 6px !important;
+}
 
 

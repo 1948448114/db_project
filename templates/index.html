@@ -8,87 +8,23 @@
     <script type="text/javascript" src="../static/js/jquery.min.js"></script>
     <script type="text/javascript" src="../static/js/date.js"></script>
     <script type="text/javascript" src="../static/js/js.js"></script>
-    <script>
-$(document).ready(function() {
-  var user_value = $("#user_value").val();
-  if (user_value) {
-    $("#non_login").css("display", "none")
-    $("#logined").css("display", "block")
-
-
-  } else {
-    $("#one1,#one2,#one3").hide();
-  }
-  $("#one1,#one2,#one3").click(function() {
-    $("#con_one_0").css("display", "none")
-  })
-  $("#one0").click(function() {
-    $("#con_one_0").css("display", "block")
-  })
-})
-
-function checkuser() {
-  var id = $("#admin_id").val();
-  var ps = $("#admin_psw").val();
-  $.ajax({
-      url: '/admin/login',
-      type: 'POST',
-      dataType: 'json',
-      data: {
-        name: id,
-        pwd: ps
-      },
-    })
-    .done(function(data) {
-      console.log(data);
-      if (data['code'] == 200) {
-        $("#non_login").css("display", "none")
-        $("#logined").css("display", "block")
-        $("#one1,#one2,#one3").show();
-      }
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-}
-
-function allbook() {
-  $.ajax({
-      url: '/book/all',
-      type: 'POST',
-      dataType: 'json',
-    })
-    .done(function(data) {
-        console.log(data);
-    })
-.fail(function() {
-    console.log("error");
-  })
-  .always(function() {
-    console.log("complete");
-  });
-
-}
-    </script>
+    <script type="text/javascript" src="../static/js/bootstrap.js"></script>
   </head>
   <body>
     <div class="top">
       <div class="tab1" id="tab1">
         <div class="menu">
           <ul class="nav">
-            <li id="one0" onclick="setTab('one',6,1)"><a href="#"><img src="../static/images/1430958346122214_06.png">
+            <li id="one0" onclick="setTab('one',4,3)"><a href="#"><img src="../static/images/1430958346122214_06.png">
               <p>首页</p>
             </a></li>
-            <li  id="one1" onclick="setTab('one',1,1)"><a href="#"><img src="../static/images/14309583461214_08.png">
+            <li  id="one1" onclick="setTab('one',1,3)"><a href="#"><img src="../static/images/14309583461214_08.png">
               <p>订单管理</p>
             </a></li>
-            <li id="one2" onclick="setTab('one',2,1)"><a href="#"><img src="../static/images/14309583461214_18.png">
+            <li id="one2" onclick="setTab('one',2,3)"><a href="#"><img src="../static/images/14309583461214_18.png">
               <p>书籍管理</p>
             </a></li>
-            <li id="one3" onclick="setTab('one',3,1)"><a href="#"><img src="../static/images/14309583461214_06.png">
+            <li id="one3" onclick="setTab('one',3,3)"><a href="#"><img src="../static/images/14309583461214_06.png">
               <p>用户信息管理</p>
             </a></li>
             
@@ -96,7 +32,7 @@ function allbook() {
         </div>
       </div>
     </div>
-    <div class="content" id="con_one_0" style="display:block;">
+    <div class="content" id="con_one_4" style="display:block;">
       <div class="meduo" id="non_login" style="display:block;">
         
         <div class="row index_login hyy">
@@ -117,7 +53,7 @@ function allbook() {
               </div>
               
               <div class="form-group">
-                <input type="submit" class="col-sm-12 btn btn-info form-control" value="确认登录" onclick="checkuser()"/>
+                <input type="submit" id="submit" class="col-sm-12 btn btn-info form-control" value="确认登录" >
               </div>
             </div>
           </div>
@@ -154,7 +90,7 @@ function allbook() {
         </div>
       </div>
       <div class="meduo">
-        <div class="right-content" id="con_column_1">
+        <div class="right-content" id="con_column_1"  >
           <div class="ck">
             <p><span>修改订单信息</span></p>
           </div>
@@ -232,7 +168,7 @@ function allbook() {
 </div>
 </div>
 <div class="meduo meduo1">
-<div class="right-content" id="con_colum_1">
+<div class="right-content" id="con_colum_1"  >
   <center>
   <div class="table_con">
     <table>
@@ -240,42 +176,42 @@ function allbook() {
         <td width="6%">ISDN</td>
         <td width="10%">书籍名称</td>
         <td width="10%">书籍图片</td>
+        <td width="10%">书籍作者</td>
         <td width="10%">书籍价格</td>
         <td width="10%">已售数量</td>
         <td width="10%">库存数量</td>
         <td width="8%">上架时间</td>
         <td width="8%">出版时间</td>
-        <td width="10%">上架时间</td>
         <td width="10%">书籍状态</td>
         <td width="10%">书籍简介</td>
       </tr>
       <tr>
-       <td width="6%">ISDN</td>
+        <td width="6%">ISDN</td>
         <td width="10%">书籍名称</td>
         <td width="10%">书籍图片</td>
+        <td width="10%">书籍作者</td>
         <td width="10%">书籍价格</td>
         <td width="10%">已售数量</td>
         <td width="10%">库存数量</td>
         <td width="8%">上架时间</td>
         <td width="8%">出版时间</td>
-        <td width="10%">上架时间</td>
         <td width="10%">书籍状态</td>
         <td width="10%">书籍简介</td>
       </tr>
       <tr>
-     <td width="6%">ISDN</td>
+        <td width="6%">ISDN</td>
         <td width="10%">书籍名称</td>
         <td width="10%">书籍图片</td>
+        <td width="10%">书籍作者</td>
         <td width="10%">书籍价格</td>
         <td width="10%">已售数量</td>
         <td width="10%">库存数量</td>
         <td width="8%">上架时间</td>
         <td width="8%">出版时间</td>
-        <td width="10%">上架时间</td>
         <td width="10%">书籍状态</td>
         <td width="10%">书籍简介</td>
       </tr>
-     <!--  <tr>
+      <!--  <tr>
         <td width="10%">445</td>
         <td width="30%">书3</td>
         <td width="12%">19/100</td>
@@ -303,50 +239,89 @@ function allbook() {
 </div>
 <div class="right-content" id="con_colum_4" style="display:none">
   <center>
-  <span style="font-size:100px;"> 10</span>
-  </center>
+  
+  <h3>填写书籍信息</h3>
+  <div class="row book_info">
+    <div class="row col-sm-8 col-sm-offset-2 ">
+      <div class="col-sm-4 form-group">
+        <p class="add_book_info"> ISDN:</p>
+        <input type="text" id="book_isbn" class="form-control" placeholder="请输入书籍ISDN">
+        <p class="add_book_info"> 书籍名称:</p>
+        <input type="text" id="book_name" class="form-control" placeholder="请输入书籍名称">
+        <p class="add_book_info"> 书籍作者:</p>
+        <input type="text" id="book_author" class="form-control" placeholder="请输入书籍作者">
+        
+      </div>
+      <div class="col-sm-4 form-group">
+        <p class="add_book_info"> 书籍价格:</p>
+        <input type="text" id="book_price" class="form-control" placeholder="请输入书籍价格">
+        
+        <p class="add_book_info"> 书籍数量:</p>
+        <input type="text" id="book_remainnum" class="form-control" placeholder="请输入书籍数量">
+        <p class="add_book_info"> 出版时间:</p>
+        
+        <input type="text" id="book_time" class="form-control" placeholder="请输入书籍出版时间">
+      </div>
+      <div class="col-sm-4  form-group">
+        
+        <p class="add_book_info"> 书籍简介:</p>
+        <input type="text" id="book_note" class="form-control" placeholder="请输入书籍简介">
+        <p class="add_book_info"> 书籍状态:</p>
+        <input type="text" id="book_active" class="form-control" placeholder="请输入状态,1为上架,0为未上架.">
+        <p class="add_book_info"> 书籍图片链接:</p>
+        <input type="text" id="book_pic" class="form-control" placeholder="请输入书籍图片链接">
+      </div>
+      <div class="col-sm-6  form-group">
+        <p class="add_book_info"> 上架时间:</p>
+        <input type="text" id="book_pic" class="form-control" placeholder="请输入上架时间,格式2016/01/01">
+          </div>
+      <div class="col-sm-6  form-group">
+        <input type="submit" id="addbook" class="col-sm-12 btn btn-info form-control" value="确认添加" onclick="addbook()"/>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</center>
 </div>
 <div class="right-content" id="con_colum_5" style="display:none">
-  <center>
-  <span style="font-size:100px;"> 11</span>
-  </center>
+<center>
+<span style="font-size:100px;"> 10</span>
+</center>
 </div>
 </div>
 </div>
-
-
-
 <div class="content"id="con_one_3" style="display:none;">
 <div class="left-column">
 <div class="service">
-  <h5>用户管理</h5>
+<h5>用户管理</h5>
 </div>
 <div class="tab4" id="tab4">
-  <dl class="call">
-    <div class="medo medo2">
-      <dt>用户信息管理</dt>
-      <dd id="colun1" onclick="setTab('colun',1,3)" ><a href="#">查看用户信息</a></dd>
-      <dd id="colun2" onclick="setTab('colun',2,3)"><a href="#">修改用户信息</a></dd>
-      <dd id="colun3" onclick="setTab('colun',3,3)"><a href="#">！删除用户！</a></dd>
-    </div>
-  </dl>
+<dl class="call">
+  <div class="medo medo2">
+    <dt>用户信息管理</dt>
+    <dd id="colun1" onclick="setTab('colun',1,3)" ><a href="#">查看用户信息</a></dd>
+    <dd id="colun2" onclick="setTab('colun',2,3)" ><a href="#">修改用户信息</a></dd>
+    <dd id="colun3" onclick="setTab('colun',3,3)"  ><a href="#">！删除用户！</a></dd>
+  </div>
+</dl>
 </div>
 </div>
 <div class="meduo meduo2">
-<div class="right-content" id="con_colun_1">
-  <center>
-  <span style="font-size:100px;"> 13</span>
-  </center>
+<div class="right-content" id="con_colun_1" style="display:none" >
+<center>
+<span style="font-size:100px;"> 13</span>
+</center>
 </div>
 <div class="right-content" id="con_colun_2" style="display:none">
-  <center>
-  <span style="font-size:100px;"> 14</span>
-  </center>
+<center>
+<span style="font-size:100px;"> 14</span>
+</center>
 </div>
 <div class="right-content" id="con_colun_3" style="display:none">
-  <center>
-  <span style="font-size:100px;"> 15</span>
-  </center>
+<center>
+<span style="font-size:100px;"> 15</span>
+</center>
 </div>
 </div>
 </div>

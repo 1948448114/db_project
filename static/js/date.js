@@ -1,10 +1,8 @@
 function setTab(name, cursel, num) {
 
 	cursel_0 = cursel;
-	if (num >= links_len) {
-		links_len = num;
-	}
-	for (var i = 1; i <= links_len; i++) {
+
+	for (var i = 1; i <= num; i++) {
 
 		var menu = document.getElementById(name + i);
 		var medo = document.getElementById(name + i);
@@ -45,33 +43,23 @@ function setTab(name, cursel, num) {
 
 }
 
-function Next() {
-
-	cursel_0++;
-
-	if (cursel_0 > links_len) cursel_0 = 1
-
-	setTab(name_0, cursel_0,0);
-
-}
 
 var name_0 = 'one';
 var name_0 = 'column';
 var name_0 = 'colum';
-var name_0 = 'colunm';
-var name_0 = 'colnm';
+var name_0 = 'colun';
 
 var cursel_0 = 1;
 
 var links_len, iIntervalId;
 
 onload = function() {
-
+	var links = document.getElementById("tab1").getElementsByTagName('li')
 	var links = document.getElementById("tab2").getElementsByTagName('dd')
 	var links = document.getElementById("tab3").getElementsByTagName('dd')
 	var links = document.getElementById("tab4").getElementsByTagName('dd')
 
-	var links = document.getElementById("tab1").getElementsByTagName('li')
+
 	links_len = links.length;
 
 	for (var i = 0; i < links_len; i++) {
@@ -85,6 +73,6 @@ onload = function() {
 	}
 
 
-	setTab(name_0, cursel_0,0);
+	setTab(name_0, cursel_0,cursel_0);
 
 }
