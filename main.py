@@ -29,6 +29,7 @@ from mod.order.new_order import NewOrderHandler
 from mod.order.delete_order import DeleteOrderHandler
 from mod.order.get_order import GetOrderHandler
 from mod.order.update_order import UpdateOrderHandler
+from mod.order.all_order import AllOrderHandler
 
 
 define("port", default=8000, help="run on the given port", type=int)
@@ -42,6 +43,7 @@ class Application(tornado.web.Application):
             (r'/admin/login',AdminLoginHandler),#管理员登录
             (r'/user/remove',DeleteUserHandler),#管理员删除用户
             (r'/user/all',AllUserHandler),#管理员删除用户
+            
             (r'/book/all',AllBookHandler),#所有书籍
             (r'/book/new',NewBookHandler),#添加书籍
             (r'/book/remove',DeleteBookHandler),#删除图书
@@ -50,7 +52,8 @@ class Application(tornado.web.Application):
             (r'/order/new',NewOrderHandler),#新建订单
             (r'/order/delete',DeleteOrderHandler),#删除订单
             (r'/order/get',GetOrderHandler),#获取个人订单
-            (r'/order/update',UpdateOrderHandler),#获取个人订单
+            (r'/order/update',UpdateOrderHandler),#更改订单状态
+            (r'/order/all',AllOrderHandler),#管理员获取所有已完成订单
             (r'/header',HomePageHandler),#header
             (r'/shoppingchart',ShopChartHandler),#购物车
             (r'/.*', PageNotFoundHandler)
