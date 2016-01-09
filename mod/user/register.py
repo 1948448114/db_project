@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-
 import tornado.web
 import tornado.gen
 from ..databases.tables import Users,Cookies,Question
@@ -27,7 +26,7 @@ class RegisterHandler(BaseHandler):
 		q3 = self.get_argument('q3',default="")
 		q4 = self.get_argument('q4',default="")
 		q5 = self.get_argument('q5',default="")
-		if not (name and pwd and email and address and phone):
+		if not (name and pwd and email and address and phone) or not(q1 or q2 or q3 or q4 or q5):
 			retjson['code'] = 400
 			retjson['content'] = u"参数缺少"
 		else:
@@ -40,9 +39,8 @@ class RegisterHandler(BaseHandler):
 					self.set_secure_cookie("username",str(cookie_value),expires_days=30,expires=int(time())+2592000)
 					cookie = Cookies(phone = phone,cookie = cookie_value)
 					self.db.add(cookie)
-					self.db.commit()
-					sql = "insert into question values('%s','%s','%s','%s','%s')" %(q1,q2,q3,q4,q5)
-					self.db.execute(sql)
+					question = Question(phone=phone,q1=q1,q2=q2,q3=q3,q4=q4,q5=q5)
+					self.db.add(question)
 					self.db.commit()
 				else:
 					retjson['code'] = 500
