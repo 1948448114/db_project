@@ -95,7 +95,7 @@
 						<div class="row">
 							<div class="col-sm-4 col-sm-offset-2" style="text-align:center;">
 								<div class="button_margin">
-									<button id="signup_btn"class="btn btn-danger btn-lg btn-block" id="login_btn">登 录</button>
+									<button id="login_btn"class="btn btn-danger btn-lg btn-block" id="login_btn">登 录</button>
 								</div>
 								<a id="toforget">忘记密码?</a>
 							</div>
@@ -154,13 +154,13 @@
 						<div class="row">
 							<div class="col-sm-4 col-sm-offset-2">
 								<div class="button_margin">
-									<select class="form-control" placeholder="请输入用户名">
+									<select id="signup_select" class="form-control" placeholder="请输入用户名">
 										<optgroup LABEL="安全问题">安全问题
-											<option id="q2">您小时候最喜欢哪一本书?</option>
-											<option id="q1">您的理想工作是什么?</option>
-											<option id="q3">您第一次坐飞机是去哪里</option>
-											<option id="q4">您少年时代最好的朋友叫什么名字?</option>
-											<option id="q5">您的第一个宠物叫什么名字?</option>
+											<option value="q2" id="q2">您小时候最喜欢哪一本书?</option>
+											<option value="q1" id="q1">您的理想工作是什么?</option>
+											<option value="q3" id="q3">您第一次坐飞机是去哪里</option>
+											<option value="q4" id="q4">您少年时代最好的朋友叫什么名字?</option>
+											<option value="q5" id="q5">您的第一个宠物叫什么名字?</option>
 										</optgroup>
 									</select>
 								</div>
@@ -168,14 +168,14 @@
 							<div class="col-sm-4">
 								<div class="my-form-group">
 									<label class="input_icon icon-cog"></label>
-									<input type="text" class="form-control" placeholder="请输入您的答案">
+									<input id="signup_anwer" type="text" class="form-control" placeholder="请输入您的答案">
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-4 col-sm-offset-4">
 								<div class="button_margin">
-									<button class="btn btn-danger btn-lg btn-block" style="margin-bottom:30px;">注 册</button>
+									<button id="signup_btn" class="btn btn-danger btn-lg btn-block" style="margin-bottom:30px;">注 册</button>
 								</div>
 							</div>
 						</div>

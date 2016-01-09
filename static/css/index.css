@@ -9,7 +9,9 @@ html{
 }
 body{
 	background-color: #ebebeb;
+	/*min-height: 1000px;*/
 }
+
 ::-webkit-input-placeholder { /* WebKit browsers */ 
 color: #000; 
 } 
@@ -24,6 +26,11 @@ color: #999;
 } 
 option{
 	color: #444;
+}
+.mycontainer{
+	position:relative;
+	/*width:100%;*/
+	min-height:400px;
 }
 .header_bg{
 	background: url(../img/bg.jpg);
