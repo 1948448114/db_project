@@ -14,11 +14,8 @@ class NewOrderHandler(BaseHandler):
 	def post(self):
 		"""
 			state状态表
-			0：未支付
-			1：已支付
-			3：发货中
-			4： 完成
-			5：已取消
+			0：完成
+			1：已取消
 		"""
 		retjson = {'code':200,'content':u'新建订单成功'}
 		try:

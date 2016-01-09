@@ -2,8 +2,8 @@
 #!/usr/bin/env python
 import tornado.web
 import tornado.gen
-from ..databases.tables import Books
-from ..Basehandler import BaseHandler
+from databases.tables import Books
+from Basehandler import BaseHandler
 from sqlalchemy.exc import IntegrityError
 import json,time,string
 

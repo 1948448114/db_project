@@ -24,6 +24,7 @@ from mod.book.new_book import NewBookHandler
 from mod.book.delete_book import DeleteBookHandler
 from mod.book.all_book import AllBookHandler
 from mod.book.update_book import UpdateBookHandler
+from mod.book.find_book import FindBookHandler
 
 from mod.order.new_order import NewOrderHandler
 from mod.order.delete_order import DeleteOrderHandler
@@ -48,6 +49,7 @@ class Application(tornado.web.Application):
             (r'/book/new',NewBookHandler),#添加书籍
             (r'/book/remove',DeleteBookHandler),#删除图书
             (r'/book/update',UpdateBookHandler),#更新图书
+            (r'/book/find',FindBookHandler),#查找图书
 
             (r'/order/new',NewOrderHandler),#新建订单
             (r'/order/delete',DeleteOrderHandler),#删除订单
