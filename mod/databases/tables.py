@@ -39,7 +39,7 @@ class Admin(Base):
 class Orders(Base):
 	__tablename__ = 'Orders'
 
-	orderid = Column(Integer(),nullable=False,primary_key=True)
+	orderid = Column(VARCHAR(64),nullable=False,primary_key=True)
 	bookid = Column(VARCHAR(13),nullable=False)
 	usered = Column(VARCHAR(50),nullable=False)
 	ordernum = Column(Integer(),nullable=False)

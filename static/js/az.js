@@ -1,6 +1,6 @@
 $(function(){
 	$.ajax({
-		url: '/login',
+		url: '/user/login',
 		type: 'POST',
 		dataType: 'json',
 		data: {phone: '15651918580',pwd:'084358'},
@@ -39,7 +39,7 @@ $('#close_changePwd').click(function(event) {
 });
 //关闭登新密码
 $('#close_newPwd').click(function(event) {
-	$('.login').hide('slow/400/fast');
+	$('.newPwd').hide('slow/400/fast');
 });
 //导航条点击登录
 $('#tologin').click(function(event) {
@@ -69,8 +69,23 @@ $('.showInfo').click(function() {
 	$('.bookInfo').toggle();});
 })
 
-
-
+function addNum(){
+	var number_temp=$('#id4').html();
+	var number=parseInt(number_temp);
+	$('#id4').html(++number);
+}
+function cutNum(){
+	var number_temp=$('#id4').html();
+	var number=parseInt(number_temp);
+	if(number<=0){
+		$('#id4').html(number);
+	}
+	else
+	$('#id4').html(--number);
+}
+function deleteChart(){
+	$(event.target).closest('.list-group-item').remove();
+}
 
 
 
