@@ -215,7 +215,7 @@ option{
 }
 .chart_div .list-group-item{
 	border-bottom: 1px solid #ddd;
-	border-left: 1px solid #ddd;
+	/*border-left: 1px solid #ddd;*/
 	border-right: 0px;
 	/*border-right: 1px solid #ddd;*/
 	border-radius: 0px;
