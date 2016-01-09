@@ -88,7 +88,7 @@
       <div class="meduo">
         <div class="right-content" id="con_column_1"  >
           <center>
-         <h3>查看订单信息</h3>
+          <h3>查看订单信息</h3>
           <div class="row book_info">
             <div class="row col-sm-6 col-sm-offset-3 ">
               <div class="col-sm-6 form-group">
@@ -100,13 +100,36 @@
               </div>
             </div>
           </div>
+          <div class="row rowad">
+            <table class="row book_info rowad" id="user_order" >
+              <tr class="tb_title row">
+                <td class="col-sm-3">订单号</td>
+                <td class="col-sm-1">ISDN</td>
+                <td class="col-sm-2">订单数目</td>
+                <td class="col-sm-2">订单时间</td>
+                <td class="col-sm-2">订单状态</td>
+                <td class="col-sm-2">书籍价格</td>
+              </tr>
+            </table>
+          </div>
           </center>
           
         </div>
-     <div class="right-content" id="con_column_2"  >
+        <div class="right-content" id="con_column_2"  style="display:none;">
           <center>
-         <h3>所有订单信息</h3>
-         
+          <h3>所有订单信息</h3>
+          <div class="row rowad">
+            <table class="row book_info rowad" id="allorder" >
+              <tr class="tb_title row">
+                <td class="col-sm-3">订单号</td>
+                <td class="col-sm-1">ISDN</td>
+                <td class="col-sm-2">订单数目</td>
+                <td class="col-sm-2">订单时间</td>
+                <td class="col-sm-2">订单状态</td>
+                <td class="col-sm-2">书籍价格</td>
+              </tr>
+            </table>
+          </div>
           </center>
           
         </div>
@@ -137,15 +160,15 @@
           <div class="table_con">
             <table>
               <tr class="tb_title">
-                <td width="6%">ISDN</td>
+                <td width="10%">ISDN</td>
                 <td width="10%">书籍名称</td>
                 <td width="10%">书籍图片</td>
                 <td width="10%">书籍作者</td>
                 <td width="10%">书籍价格</td>
                 <td width="10%">已售数量</td>
                 <td width="10%">库存数量</td>
-                <td width="8%">上架时间</td>
-                <td width="8%">出版时间</td>
+                <td width="10%">上架时间</td>
+                <td width="10%">出版时间</td>
                 <td width="10%">书籍状态</td>
                 <td width="10%">书籍简介</td>
               </tr>
@@ -163,15 +186,15 @@
                 <td width="10%">书籍简介</td>
               </tr>
               <tr>
-                <td width="6%">ISDN</td>
+                <td width="10%">ISDN</td>
                 <td width="10%">书籍名称</td>
                 <td width="10%">书籍图片</td>
                 <td width="10%">书籍作者</td>
                 <td width="10%">书籍价格</td>
                 <td width="10%">已售数量</td>
                 <td width="10%">库存数量</td>
-                <td width="8%">上架时间</td>
-                <td width="8%">出版时间</td>
+                <td width="10%">上架时间</td>
+                <td width="10%">出版时间</td>
                 <td width="10%">书籍状态</td>
                 <td width="10%">书籍简介</td>
               </tr>
@@ -199,9 +222,9 @@
               <div class="col-sm-6 form-group">
                 <p class="add_book_info"> ISDN:</p>
                 <input type="text" id="sbook_isbn" class="form-control" placeholder="请输入书籍ISDN"/>
-                 <p class="add_book_info"> 书籍名称:</p>
+                <p class="add_book_info"> 书籍名称:</p>
                 <input type="text" id="sbook_name" class="form-control" placeholder="请输入书籍名称">
-              
+                
               </div>
               <div class="col-sm-6 form-group">
                 <p class="add_book_info"> 书籍作者:</p>
