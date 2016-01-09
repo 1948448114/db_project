@@ -101,15 +101,8 @@
             </div>
           </div>
           <div class="row rowad">
-            <table class="row book_info rowad" id="user_order" >
-              <tr class="tb_title row">
-                <td class="col-sm-3">订单号</td>
-                <td class="col-sm-1">ISDN</td>
-                <td class="col-sm-2">订单数目</td>
-                <td class="col-sm-2">订单时间</td>
-                <td class="col-sm-2">订单状态</td>
-                <td class="col-sm-2">书籍价格</td>
-              </tr>
+            <table class="book_info rowad" id="user_order" >
+
             </table>
           </div>
           </center>
@@ -119,13 +112,14 @@
           <center>
           <h3>所有订单信息</h3>
           <div class="row rowad">
-            <table class="row book_info rowad" id="allorder" >
+            <table class="rowad" id="allorder" >
               <tr class="tb_title row">
                 <td class="col-sm-3">订单号</td>
                 <td class="col-sm-1">ISDN</td>
-                <td class="col-sm-2">订单数目</td>
+                <td class="col-sm-2">用户号</td>
+                <td class="col-sm-1">订单数目</td>
                 <td class="col-sm-2">订单时间</td>
-                <td class="col-sm-2">订单状态</td>
+                <td class="col-sm-1">订单状态</td>
                 <td class="col-sm-2">书籍价格</td>
               </tr>
             </table>
@@ -143,73 +137,56 @@
         <div class="tab3" id="tab3">
           <dl class="call">
             <div class="medo medo1">
+              <dt>库存管理</dt>
+              <dd id="colum4" onclick="setTab('colum',4,5)"><a href="#">增加书籍信息</a></dd>
+              <dd id="colum5" onclick="setTab('colum',5,5)"><a href="#">删除书籍信息</a></dd>
               <dt>信息管理</dt>
               <dd id="colum1" onclick="setTab('colum',1,5);allbook()" ><a href="#">所有书籍信息</a></dd>
               <dd id="colum2" onclick="setTab('colum',2,5)" ><a href="#">查看书籍信息</a></dd>
               <dd id="colum3" onclick="setTab('colum',3,5)"><a href="#">修改书籍信息</a></dd>
-              <dt>库存管理</dt>
-              <dd id="colum4" onclick="setTab('colum',4,5)"><a href="#">增加书籍信息</a></dd>
-              <dd id="colum5" onclick="setTab('colum',5,5)"><a href="#">删除书籍信息</a></dd>
+              
             </div>
           </dl>
         </div>
       </div>
       <div class="meduo meduo1">
-        <div class="right-content" id="con_colum_1"  >
+        <div class="right-content" id="con_colum_1"  style="display:none" >
           <center>
-          <div class="table_con">
-            <table>
-              <tr class="tb_title">
-                <td width="10%">ISDN</td>
-                <td width="10%">书籍名称</td>
-                <td width="10%">书籍图片</td>
-                <td width="10%">书籍作者</td>
-                <td width="10%">书籍价格</td>
-                <td width="10%">已售数量</td>
-                <td width="10%">库存数量</td>
-                <td width="10%">上架时间</td>
-                <td width="10%">出版时间</td>
-                <td width="10%">书籍状态</td>
-                <td width="10%">书籍简介</td>
+          <h3>所有书籍信息</h3>
+          <div class="row rowad">
+            <table class="rowad" id="allbook" >
+              <tr class="addline row">
+                <td class="col-sm-1">ISDN</td>
+                <td class="col-sm-1">书籍名称</td>
+                <td class="col-sm-1">书籍图片</td>
+                <td class="col-sm-1">书籍作者</td>
+                <td class="col-sm-1">书籍价格</td>
+                <td class="col-sm-1">已售数量</td>
+               <td class="col-sm-1">库存数量</td>
+                <td class="col-sm-1">上架时间</td>
+                <td class="col-sm-1">出版时间</td>
+                <td class="col-sm-1">书籍状态</td>
+                <td class="col-sm-1">书籍简介</td>
+                 <td class="col-sm-1">操作</td>
               </tr>
-              <tr>
-                <td width="6%">ISDN</td>
-                <td width="10%">书籍名称</td>
-                <td width="10%">书籍图片</td>
-                <td width="10%">书籍作者</td>
-                <td width="10%">书籍价格</td>
-                <td width="10%">已售数量</td>
-                <td width="10%">库存数量</td>
-                <td width="8%">上架时间</td>
-                <td width="8%">出版时间</td>
-                <td width="10%">书籍状态</td>
-                <td width="10%">书籍简介</td>
-              </tr>
-              <tr>
-                <td width="10%">ISDN</td>
-                <td width="10%">书籍名称</td>
-                <td width="10%">书籍图片</td>
-                <td width="10%">书籍作者</td>
-                <td width="10%">书籍价格</td>
-                <td width="10%">已售数量</td>
-                <td width="10%">库存数量</td>
-                <td width="10%">上架时间</td>
-                <td width="10%">出版时间</td>
-                <td width="10%">书籍状态</td>
-                <td width="10%">书籍简介</td>
-              </tr>
-              <!--  <tr>
-                <td width="10%">445</td>
-                <td width="30%">书3</td>
-                <td width="12%">19/100</td>
-                <td width="12%">78/100</td>
-                <td width="10%">—</td>
-                <td width="26%">
-                  <input class="bj_btn" type="button" value="编辑" />
-                  <input class="sj_btn" type="button" value="上架" />
-                  <input class="del_btn" type="button" value="删除" />
+            <tr class="addline row">
+                <td class="col-sm-1">ISDN</td>
+                <td class="col-sm-1">书籍名称</td>
+                <td class="col-sm-1">书籍图片</td>
+                <td class="col-sm-1">书籍作者</td>
+                <td class="col-sm-1">书籍价格</td>
+                <td class="col-sm-1">已售数量</td>
+               <td class="col-sm-1">库存数量</td>
+                <td class="col-sm-1">上架时间</td>
+                <td class="col-sm-1">出版时间</td>
+                <td class="col-sm-1">书籍状态</td>
+                <td class="col-sm-1">书籍简介</td>
+                 <td class="col-sm-1 row rowtd">    
+                  <input class="bj_btn col-sm-6 btn-info" type="button" value="编辑" />
+                  <input class="del_btn col-sm-6 btn-danger" type="button" value="删除" />
                 </td>
-              </tr> -->
+              </tr>
+             
             </table>
           </div>
           </center>
@@ -232,6 +209,11 @@
                 <input type="submit" id="sebook" class="col-sm-12 btn btn-primary form-control" value="查找书籍" />
               </div>
             </div>
+          </div>
+          <div class="row rowad">
+            <table class="rowad" id="booklist" >
+              
+            </table>
           </div>
           </center>
         </div>
@@ -288,9 +270,9 @@
           </center>
         </div>
         
-        <div class="right-content" id="con_colum_4" style="display:none">
+        <div class="right-content" id="con_colum_4">
           <center>
-          <h3>填写书籍信息</h3>
+          <h3>增加书籍：填写书籍信息</h3>
           <div class="row book_info">
             <div class="row col-sm-10 col-sm-offset-1 ">
               <div class="col-sm-4 form-group">
@@ -362,19 +344,14 @@
           <dl class="call">
             <div class="medo medo2">
               <dt>用户信息管理</dt>
-              <dd id="colun1" onclick="setTab('colun',1,2);alluser()" ><a href="#">所有用户信息</a></dd>
-              <dd id="colun2" onclick="setTab('colun',2,2)" ><a href="#">！删除用户！</a></dd>
+              <dd id="colun1" onclick="setTab('colun',1,2)" ><a href="#">！删除用户！</a></dd>
+              <dd id="colun2" onclick="setTab('colun',2,2);alluser()" ><a href="#">所有用户信息</a></dd>
             </div>
           </dl>
         </div>
       </div>
       <div class="meduo meduo2">
-        <div class="right-content" id="con_colun_1" style="display:none" >
-          <center>
-          <span style="font-size:100px;"> 13</span>
-          </center>
-        </div>
-        <div class="right-content" id="con_colun_2" style="display:none">
+        <div class="right-content" id="con_colun_1" style="display:none">
           <center>
           <h3>！删除用户！</h3>
           <div class="row book_info">
@@ -390,6 +367,17 @@
           </div>
           </center>
         </div>
+        <div class="right-content" id="con_colun_2" style="display:none" >
+          <center>
+          <h3>所有用户信息</h3>
+          <div class="row rowad">
+            <table class="rowad" id="alluser" >
+
+            </table>
+          </div>
+          </center>
+        </div>
+        
         
       </div>
     </div>
