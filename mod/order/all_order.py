@@ -28,6 +28,7 @@ class AllOrderHandler(BaseHandler):
 				for i in result:
 					order = {
 						'orderid':i.orderid,
+						'phone':i.usered,
 						'isbn':i.bookid,
 						'ordernum':i.ordernum,
 						'ordertime':change_time(i.ordertime,1),
