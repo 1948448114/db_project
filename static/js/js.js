@@ -22,18 +22,40 @@ $(document).ready(function() {
 	} else {
 		$("#one1,#one2,#one3").hide();
 	}
-	$("#one1,#one2,#one3").click(function() {
-		$("#con_one_4").css("display", "none")
+	$("#one1").click(function() {
+		$("#con_one_1").css("display", "block");
+		$("#con_one_4").css("display", "none");
+		$("#con_one_2").css("display", "none");
+		$("#con_one_3").css("display", "none");
+	})
+	$("#one2").click(function() {
+		$("#con_one_2").css("display", "block");
+		$("#con_one_1").css("display", "none");
+		$("#con_one_4").css("display", "none");
+		$("#con_one_3").css("display", "none");
+	})
+	$("#one3").click(function() {
+		$("#con_one_3").css("display", "block");
+		$("#con_one_1").css("display", "none");
+		$("#con_one_2").css("display", "none");
+		$("#con_one_4").css("display", "none");
 	})
 	$("#one0").click(function() {
-		$("#con_one_4").css("display", "block")
+		$("#con_one_4").css("display", "block");
+		$("#con_one_1").css("display", "none");
+		$("#con_one_2").css("display", "none");
+		$("#con_one_3").css("display", "none");
 	})
 	$("#submit").click(function() {
 		checkuser();
 	})
-	// 	$("#addbook").click(function() {
-	// 	addbook();
-	// })
+		$("#addbook").click(function() {
+		addbook();
+	})
+				$("#deletebook").click(function() {
+		deletebook();
+	})
+		
 });
 
 function tab(a, b, c, d) {
@@ -102,7 +124,7 @@ function addbook() {
 	var book_active = $("#book_active ").val();
 	var book_pic = $("#book_pic  ").val();
 
-
+	
 	$.ajax({
 			url: '/book/new',
 			type: 'POST',
@@ -122,6 +144,31 @@ function addbook() {
 		})
 		.done(function(data) {
 			console.log(data);
+			alert(data["content"]);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
+
+function deletebook() {
+	var book_isbn = $("#book_isbn_delete").val();
+
+	
+	$.ajax({
+			url: '/book/remove',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				isbn:book_isbn,
+			},
+		})
+		.done(function(data) {
+			console.log(data);
+			alert(data["content"]);
 		})
 		.fail(function() {
 			console.log("error");
