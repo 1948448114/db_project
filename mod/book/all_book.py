@@ -17,7 +17,7 @@ class AllBookHandler(BaseHandler):
 			start_number = (int(pagenumber)-1)*int(pagesize)
 			all_number = self.db.execute("select count(*) as number from Books").fetchone().number
 			retjson['number'] = all_number
-			sql = "select * from Books order by releasetime DESC limit %d,%d" % (start_number,int(pagesize))
+			sql = "select * from Books order by dhelftime DESC limit %d,%d" % (start_number,int(pagesize))
 			result = self.db.execute(sql).fetchall()
 			content = []
 			for i in result:
