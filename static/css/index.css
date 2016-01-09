@@ -164,7 +164,7 @@ option{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-.bookTabs,.chart_div,.info_div{
+.bookTabs,.chart_div,.info_div,.orderTabs{
 	background-color: #fff;
 	/*min-height: 200px;*/
 	width: 70%;
@@ -174,7 +174,7 @@ option{
 .bookTabs span,.chart_div span,.info_div span{
 	color: #663300;
 }
-.bookTabs a{
+.bookTabs,.orderTabs a{
 	color: #663300;
 }
 .bookTabs .list-group-item{
@@ -208,7 +208,7 @@ option{
 	border-radius: 0px;
 	padding-bottom: 45px;
 }
-.chart_div,.info_div h4{
+.chart_div h4,.info_div h4{
 	padding: 10px auto;
 	text-align: center;
 }
@@ -222,6 +222,12 @@ option{
 	padding-left: 0px;
 	padding-right: 0px;
 	width: 13%;
+}
+.orderImg{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 13%;
+	margin-left: 70px;
 }
 .checkBox{
 	text-align: center;
@@ -241,17 +247,40 @@ option{
 }
 .info_div{
 	margin-top: 0px;
-	font-size: 1rem;
+	/*font-size: 1rem;*/
 }
 .info_div .row{
 	padding: 3px 2px 8px 2px;
 }
-
-
-
-
-
-
+.confirmDiv{
+	width: 60%;
+}
+.info_div{
+	width: 60%;
+}
+/*——————————————————————————————订单——————————————————————————————*/
+#orders span{
+	color: #663300;
+}
+.order1row{
+	padding: 5px 0px;
+	background-color: #F6E8DC;
+}
+.firstli{
+	padding-top: 0px;
+}
+.orderTabs{
+	width: 60%;
+}
+.orderTabs img{
+	width: 60%;
+	margin-left: 10px;
+}
+.orderTabs .row{
+	padding: 5px 0px;
+}
+.ulbg{
+}
 
 
 

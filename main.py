@@ -54,6 +54,7 @@ class Application(tornado.web.Application):
             (r'/header',HomePageHandler),#header
             (r'/shoppingchart',ShopChartHandler),#购物车
             (r'/confirmOrder',ConfirmOrderHandler),#确认订单
+            (r'/orders',OrderHandler),#订单
             (r'/.*', PageNotFoundHandler)
             ]
         settings = dict(
@@ -74,7 +75,7 @@ class PageNotFoundHandler(tornado.web.RequestHandler):
         self.render('404.html')
     def post(self):
         self.render('404.html')
-class HomePageHandler(tornado.web.RequestHandler):
+class HomePageHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('header.html',user=user)
@@ -82,14 +83,18 @@ class HomeHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('home.html',user=user)
-class ShopChartHandler(tornado.web.RequestHandler):
+class ShopChartHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('shoppingchart.html',user=user)
-class ConfirmOrderHandler(tornado.web.RequestHandler):
+class ConfirmOrderHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('confirmOrder.html',user=user)
+class OrderHandler(BaseHandler):
+    def get(self):
+        user = self.get_current_user()
+        self.render('orders.html',user=user)
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)
