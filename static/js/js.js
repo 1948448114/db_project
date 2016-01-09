@@ -496,6 +496,7 @@ function updatebook2() {
 		.done(function(data) {
 			console.log(data);
 			alert(data["content"]);
+			$("#update_book_block").css("display", "none");
 		})
 		.fail(function() {
 			console.log("error");
