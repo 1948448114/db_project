@@ -174,7 +174,7 @@ option{
 .bookTabs span,.chart_div span,.info_div span{
 	color: #663300;
 }
-.bookTabs,.orderTabs a{
+.bookTabs a,.orderTabs a{
 	color: #663300;
 }
 .bookTabs .list-group-item{
@@ -279,18 +279,62 @@ option{
 .orderTabs .row{
 	padding: 5px 0px;
 }
-.ulbg{
+/*——————————————————————————————footer——————————————————————————————*/
+footer{
+	background-color: #fff;
+	height: 100%;
 }
-
-
-
-
-
-
-
-
-
-
+.myfooter{
+	width: 100%;
+	margin:40px auto 20px auto;
+	min-height: 40px;
+	text-align: center;
+}
+.footerrow{
+	width: 70%;
+	margin:auto;
+	border-bottom: 1px solid #ccc;
+	padding: 15px 5px 5px 5px;
+	font-size: 0.5rem;
+	vertical-align: middle;
+}
+.footerrow a{
+	text-decoration: none;
+	color: #999;
+}
+.footerrow a:hover{
+	text-decoration: none;
+	color: #3399CC;
+}
+.footerrow .col-sm-1,.footerrow2 .col-sm-1{
+	padding: 0px 1px;
+}
+.footericon{
+	font-size:1.5rem;
+	margin: 0px 10px;
+}
+.footerrow2{
+	width: 70%;
+	margin:auto;
+	padding: 15px 5px 5px 5px;
+	vertical-align: middle;
+	font-size: 0.5rem;
+}
+.footerrow2 span{
+	font-size: 0.5rem;
+	color: #999;
+}
+.name{
+	display: inline-block;
+}
+.nameborder{
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 0px 3px;
+}
+.myfooter{
+	margin-bottom: 0px;
+}
 
 
 

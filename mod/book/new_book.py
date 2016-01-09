@@ -12,7 +12,6 @@ class NewBookHandler(BaseHandler):
 		pass
 	def post(self):
 		retjson = {'code':200,'content':'ok'}
-
 		try:
 			admin = self.get_current_admin()
 			if not admin:
