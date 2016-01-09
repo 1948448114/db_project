@@ -53,9 +53,9 @@ class FindBookHandler(BaseHandler):
 		all_key = ['name','author']
 		sql = ""
 		for (key,value) in arguments.iteritems():
-			if key in isn_key:
+			if key in isn_key and len(value[0])>0:
 				sql += " and %s=%s" %(key,value[0])
-			elif key in all_key:
+			elif key in all_key and len(value[0])>0:
 				sql += " and %s like \'%%%s%%\'" %(key,value[0])
 			else:
 				pass

@@ -58,8 +58,16 @@ $(document).ready(function() {
 	$("#findorder").click(function() {
 		findorder();
 	})
-
-
+	$("#sebook").click(function() {
+		findbook();
+	})
+	$("#upbook").click(function() {
+		$("#update_book_block").css("display", "none");
+		updatebook1();
+	})
+	$("#updatebook").click(function() {
+		updatebook2();
+	})
 });
 
 function tab(a, b, c, d) {
@@ -115,6 +123,7 @@ function allbook() {
 			console.log("complete");
 		});
 }
+
 function allorder() {
 	$.ajax({
 			url: '/order/all',
@@ -131,6 +140,7 @@ function allorder() {
 			console.log("complete");
 		});
 }
+
 function alluser() {
 	$.ajax({
 			url: '/user/all',
@@ -147,6 +157,7 @@ function alluser() {
 			console.log("complete");
 		});
 }
+
 function addbook() {
 	var book_isbn = $("#book_isbn").val();
 	var book_name = $("#book_name").val();
@@ -223,6 +234,113 @@ function findorder() {
 			dataType: 'json',
 			data: {
 				phone: order_user,
+			},
+		})
+		.done(function(data) {
+			console.log(data);
+	
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
+
+function findbook() {
+	var book_isbn = $("#sbook_isbn").val();
+	var book_name = $("#sbook_name").val();
+	var book_author = $("#sbook_author ").val();
+
+
+	$.ajax({
+			url: '/book/find',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				isbn: book_isbn,
+				name: book_name,
+				author: book_author,
+			},
+		})
+		.done(function(data) {
+			console.log(data);
+			alert(data["content"]);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
+
+function updatebook1() {
+	var book_isbn = $("#ubook_isbn").val();
+
+
+	$.ajax({
+			url: '/book/find',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				isbn: book_isbn,
+			},
+		})
+		.done(function(data) {
+			console.log(data);
+			$("#update_book_block").css("display", "block");
+			document.getElementById('ubook_name').value=data['content'][0]['name'];
+			document.getElementById('ubook_author').value=data['content'][0]['author'];
+			document.getElementById('ubook_price').value=data['content'][0]['price'];
+			document.getElementById('ubook_remainnum').value=data['content'][0]['remainnum'];
+			document.getElementById('ubook_shelftime').value=data['content'][0]['shelftime'];
+			document.getElementById('ubook_time').value=data['content'][0]['releasetime'];
+			document.getElementById('ubook_active').value=data['content'][0]['active'];
+			document.getElementById('ubook_pic').value=data['content'][0]['picture'];
+			document.getElementById('ubook_note').value=data['content'][0]['note'];
+
+			// for (var i = data['content'].length - 1; i >= 0; i--) {
+			// 	console.log(data['content'][i]['name']);
+			// };
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}
+
+function updatebook2() {
+	var book_isbn = $("#ubook_isbn").val();
+	var book_name = $("#ubook_name").val();
+	var book_author = $("#ubook_author ").val();
+	var book_price = $("#ubook_price ").val();
+	var book_remainnum = $("#ubook_remainnum ").val();
+	var book_time = $("#ubook_time ").val();
+	var book_shelftime = $("#ubook_shelftime ").val();
+	var book_note = $("#ubook_note ").val();
+	var book_active = $("#ubook_active ").val();
+	var book_pic = $("#ubook_pic  ").val();
+
+
+	$.ajax({
+			url: '/book/update',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				isbn: book_isbn,
+				name: book_name,
+				author: book_author,
+				price: book_price,
+				remainnum: book_remainnum,
+				shelftime: book_shelftime,
+				releasetime: book_time,
+				active: book_active,
+				picture: book_pic,
+				note: book_note,
 			},
 		})
 		.done(function(data) {

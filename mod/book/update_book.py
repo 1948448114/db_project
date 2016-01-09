@@ -27,7 +27,8 @@ class UpdateBookHandler(BaseHandler):
 				else:
 					sql = u"update Books set %s where isbn='%s'" %(argu,isbn)
 					print sql
-					self.db.execute(sql)
+					result = self.db.execute(sql)
+					print result.rowcount
 					self.db.commit()
 		except IntegrityError:
 			self.db.rollback()
@@ -47,15 +48,15 @@ class UpdateBookHandler(BaseHandler):
 		sql = ""
 		for (key,value) in arguments.iteritems():
 			if key in int_key:
-				sql += ",%s=%d" %(key,int(value[0]))
+				sql += " and %s=%d" %(key,int(value[0]))
 			elif key in float_key:
-				sql += ",'%s=%.2f" %(key,float(value[0]))
+				sql += " and %s=%.2f" %(key,float(value[0]))
 			elif key in time_key:
-				sql += ",%s='%s'" %(key,change_time(value[0]))
+				sql += " and %s='%s'" %(key,change_time(value[0],0))
 			elif key in all_key:
-				sql += ",%s='%s'" %(key,value[0])
+				sql += " and %s='%s'" %(key,value[0])
 			else:
 				pass
 		if sql:
-			sql = sql[1:]
+			sql = sql[4:]
 		return sql
