@@ -132,6 +132,14 @@ function allorder() {
 		})
 		.done(function(data) {
 			console.log(data);
+			if (data['code'] == 200) {
+				var htmlInsert = "<tr class='tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISDN</td><td class = 'col-sm-2'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-2'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
+				for (var i = 0; i < data['content'].length; i++) {
+					htmlInsert += "<tr class='tb_title row'> <td class='col-sm-3'>" + data['content'][i]['orderid'] + " </td> <td class='col-sm-1'>" + data['content'][i]['isbn'] + "</td> <td class='col-sm-2'>" + data['content'][i]['ordernum'] + " </td> <td class='col-sm-2'>" + data['content'][i]['ordertime'] + " </td> <td class='col-sm-2'>" + data['content'][i]['orderstate'] + " </td> <td class='col-sm-2'>" + data['content'][i]['bookprice'] + "</td > </tr>";
+				}
+
+				$("#allorder").html(htmlInsert);
+			}
 		})
 		.fail(function() {
 			console.log("error");
@@ -238,7 +246,14 @@ function findorder() {
 		})
 		.done(function(data) {
 			console.log(data);
-	
+			if (data['code'] == 200) {
+				var htmlInsert = "<tr class='tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISDN</td><td class = 'col-sm-2'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-2'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
+				for (var i = 0; i < data['content'].length; i++) {
+					htmlInsert += "<tr class='tb_title row'> <td class='col-sm-3'>" + data['content'][i]['orderid'] + " </td> <td class='col-sm-1'>" + data['content'][i]['isbn'] + "</td> <td class='col-sm-2'>" + data['content'][i]['ordernum'] + " </td> <td class='col-sm-2'>" + data['content'][i]['ordertime'] + " </td> <td class='col-sm-2'>" + data['content'][i]['orderstate'] + " </td> <td class='col-sm-2'>" + data['content'][i]['bookprice'] + "</td > </tr>";
+				}
+
+				$("#user_order").html(htmlInsert);
+			}
 		})
 		.fail(function() {
 			console.log("error");
@@ -291,15 +306,15 @@ function updatebook1() {
 		.done(function(data) {
 			console.log(data);
 			$("#update_book_block").css("display", "block");
-			document.getElementById('ubook_name').value=data['content'][0]['name'];
-			document.getElementById('ubook_author').value=data['content'][0]['author'];
-			document.getElementById('ubook_price').value=data['content'][0]['price'];
-			document.getElementById('ubook_remainnum').value=data['content'][0]['remainnum'];
-			document.getElementById('ubook_shelftime').value=data['content'][0]['shelftime'];
-			document.getElementById('ubook_time').value=data['content'][0]['releasetime'];
-			document.getElementById('ubook_active').value=data['content'][0]['active'];
-			document.getElementById('ubook_pic').value=data['content'][0]['picture'];
-			document.getElementById('ubook_note').value=data['content'][0]['note'];
+			document.getElementById('ubook_name').value = data['content'][0]['name'];
+			document.getElementById('ubook_author').value = data['content'][0]['author'];
+			document.getElementById('ubook_price').value = data['content'][0]['price'];
+			document.getElementById('ubook_remainnum').value = data['content'][0]['remainnum'];
+			document.getElementById('ubook_shelftime').value = data['content'][0]['shelftime'];
+			document.getElementById('ubook_time').value = data['content'][0]['releasetime'];
+			document.getElementById('ubook_active').value = data['content'][0]['active'];
+			document.getElementById('ubook_pic').value = data['content'][0]['picture'];
+			document.getElementById('ubook_note').value = data['content'][0]['note'];
 
 			// for (var i = data['content'].length - 1; i >= 0; i--) {
 			// 	console.log(data['content'][i]['name']);
