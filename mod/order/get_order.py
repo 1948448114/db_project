@@ -65,5 +65,4 @@ def get_order(db,phone):
 		self.db.rollback()
 		retjson['code'] = 500
 		retjson['content'] = str(e)
-	ret = json.dumps(retjson,ensure_ascii=False, indent=2)
-	self.write(ret)
+	return retjson	

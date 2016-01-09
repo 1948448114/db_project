@@ -213,3 +213,26 @@ function deletebook() {
 		});
 }
 
+function findorder() {
+	var order_user = $("#order_user").val();
+
+
+	$.ajax({
+			url: '/order/find',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				phone: order_user,
+			},
+		})
+		.done(function(data) {
+			console.log(data);
+			alert(data["content"]);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+}

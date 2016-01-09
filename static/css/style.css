@@ -81,7 +81,7 @@ input, select{background-color:#f1f1f1; border:1px solid #c1c1c1; padding-left:1
 .book_info input{
 	padding: 6px 6px !important;
 }
-#addbook,#deletebook,#upbook,#updatebook,#deleteuser,#deleteorder{
+#addbook,#deletebook,#upbook,#updatebook,#deleteuser,#deleteorder,#findorder{
 	margin-top: 30px;
 }
 
