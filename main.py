@@ -46,7 +46,6 @@ class Application(tornado.web.Application):
             (r'/book/new',NewBookHandler),#添加书籍
             (r'/book/remove',DeleteBookHandler),#删除图书
             (r'/book/update',UpdateBookHandler),#更新图书
-
             (r'/order/new',NewOrderHandler),#新建订单
             (r'/order/delete',DeleteOrderHandler),#删除订单
             (r'/order/get',GetOrderHandler),#获取个人订单
@@ -55,6 +54,7 @@ class Application(tornado.web.Application):
             (r'/shoppingchart',ShopChartHandler),#购物车
             (r'/confirmOrder',ConfirmOrderHandler),#确认订单
             (r'/orders',OrderHandler),#订单
+            (r'/footer',FooterHandler),#footer
             (r'/.*', PageNotFoundHandler)
             ]
         settings = dict(
@@ -95,6 +95,10 @@ class OrderHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('orders.html',user=user)
+class FooterHandler(BaseHandler):
+    def get(self):
+        user = self.get_current_user()
+        self.render('footer.html',user=user)
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)
