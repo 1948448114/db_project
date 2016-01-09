@@ -48,15 +48,15 @@ class UpdateBookHandler(BaseHandler):
 		sql = ""
 		for (key,value) in arguments.iteritems():
 			if key in int_key:
-				sql += " and %s=%d" %(key,int(value[0]))
+				sql += ",%s=%d" %(key,int(value[0]))
 			elif key in float_key:
-				sql += " and %s=%.2f" %(key,float(value[0]))
+				sql += ",%s=%.2f" %(key,float(value[0]))
 			elif key in time_key:
-				sql += " and %s='%s'" %(key,change_time(value[0],0))
+				sql += ",%s='%s'" %(key,change_time(value[0],0))
 			elif key in all_key:
-				sql += " and %s='%s'" %(key,value[0])
+				sql += ",%s='%s'" %(key,value[0])
 			else:
 				pass
 		if sql:
-			sql = sql[4:]
+			sql = sql[1:]
 		return sql
