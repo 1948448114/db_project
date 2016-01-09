@@ -14,6 +14,7 @@ class BaseHandler(tornado.web.RequestHandler):
         self.db.close()
     def get_current_user(self):
         name = self.get_secure_cookie("username")
+        print name
         if name:
             try:
                 status = self.db.query(Cookies).filter(Cookies.cookie == name).one()
