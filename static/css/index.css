@@ -175,7 +175,7 @@ option{
 	background-color: #fff;
 	/*min-height: 200px;*/
 	width: 70%;
-	margin:40px auto 20px auto;
+	margin:40px auto 40px auto;
 	border-radius: 4px;
 }
 .bookTabs span,.chart_div span,.info_div span{
@@ -186,9 +186,14 @@ option{
 }
 .bookTabs .list-group-item{
 	border-bottom: 1px solid #ddd;
-	border-left: 1px solid #ddd;
-	/*border-right: 1px solid #ddd;*/
+	border-left: 0px;
 	border-radius: 0px;
+	padding-bottom: 20px;
+}
+.bookTabs .list-group-item:last-child{
+	border-left: 0px;
+	border-radius: 0px;
+	border-bottom: 0px solid #ddd;
 	padding-bottom: 20px;
 }
 .bookTabs .row{
@@ -210,7 +215,8 @@ option{
 }
 .chart_div .list-group-item{
 	border-bottom: 1px solid #ddd;
-	border-left: 0px;
+	border-left: 1px solid #ddd;
+	border-right: 0px;
 	/*border-right: 1px solid #ddd;*/
 	border-radius: 0px;
 	padding-bottom: 45px;
@@ -265,6 +271,15 @@ option{
 .info_div{
 	width: 60%;
 }
+.page{
+	background: none;
+}
+.nextp{
+	
+}
+.lastp{
+	
+}
 /*——————————————————————————————订单——————————————————————————————*/
 #orders span{
 	color: #663300;
@@ -293,7 +308,7 @@ footer{
 }
 .myfooter{
 	width: 100%;
-	margin:40px auto 20px auto;
+	margin:40px auto 80px auto;
 	min-height: 40px;
 	text-align: center;
 }
