@@ -7,82 +7,154 @@
 			<div class="row">
 				<h4>我的购物车</h4>
 			</div>
-			<ul class="list-group">
-				<li class="list-group-item">
-					<div class="row">
-						<div class="col-sm-1 checkBox">
-
-						</div>
-						<div class="col-sm-2 chartImg">
-							<img src="../static/img/books_2.png">
-						</div>
-						<div class="col-sm-3">
+			<ul class="list-group" id="chartUl">
+				<p id="blank"></p>
+				<script type="text/template" id="chartTemplate">
+				<li class="list-group-item" isbn="{isbn}">
 							<div class="row">
-								书籍名称:&nbsp;&nbsp;<span>haha舒服舒服撒发生飞洒地方ha</span>
+										<div class="col-sm-1 checkBox">
+										</div>
+										<div class="col-sm-2 chartImg">
+													<img src="{picture}">
+										</div>
+										<div class="col-sm-3">
+													<div class="row">
+																书籍名称:&nbsp;&nbsp;<span>{name}</span>
+													</div>
+													<div class="row">
+																作者:&nbsp;&nbsp;<span>{author}</span>
+													</div>
+										</div>
+										<div class="col-sm-2">
+													<div class="row">
+																余量:&nbsp;&nbsp;<span>{remainnum}</span>
+													</div>
+													<div class="row">
+																单价:&nbsp;&nbsp;￥<span>{price}</span>
+													</div>
+										</div>
+										<div class="col-sm-2">
+													<div class="row">
+																购买数量:&nbsp;&nbsp;<label class="icon-minus" onclick="cutNum()"></label>&nbsp;&nbsp;<span id="abooknumber" style="font-size:1.1rem;">1</span>&nbsp;&nbsp;<label class="icon-plus" onclick="addNum()"></label>
+													</div>
+													<div class="row">
+																总价:&nbsp;&nbsp;￥<span id="allprice">{fprice}</span>
+													</div>
+										</div>
+										<div class="col-sm-2">
+													<div class="row">
+																<button class="btn btn-sm btn-danger" onclick="deleteChart()">删 除</button>
+													</div>
+													<div class="row">
+																<a class="btn btn-sm btn-warning" onclick="toOrder()">下 单</a>
+													</div>
+										</div>
 							</div>
-							<div class="row">
-								作者:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="row">
-								余量:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-							<div class="row">
-								单价:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="row">
-								购买数量:&nbsp;&nbsp;<label class="icon-minus" onclick="cutNum()"></label>&nbsp;&nbsp;<span id="id4" style="font-size:1.1rem;">1</span>&nbsp;&nbsp;<label class="icon-plus" onclick="addNum()"></label>
-							</div>
-							<div class="row">
-								总价:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-						</div>
-						<div class="col-sm-2">
-							<div class="row">
-								<button class="btn btn-sm btn-danger" onclick="deleteChart()">删 除</button>
-							</div>
-							<div class="row">
-								<a class="btn btn-sm btn-warning" href="confirmOrder">下 单</a>
-							</div>
-						</div>
-					</div>
 				</li>
+				</script>
 			</ul>
 		</div>
-<!-- 		<div class="confirmChart">
+		<!-- 		<div class="confirmChart">
 			<a class="btn btn-info" href="confirmOrder">去下单</a>
 			<div class="alert alert-success alert-dismissible" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<p>success or error</p>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p>success or error</p>
 			</div>
 		</div> -->
 	</section>
-<footer>
-	<div class="row myfooter">
-		<div class="row footerrow">
-			<div class="col-sm-1 "><a href="/">首页</a></div>
-			<div class="col-sm-1"><a href="">新用户注册</a></div>
-			<div class="col-sm-1"><a href="">搜索书籍</a></div>
-			<div class="col-sm-1"><a href="shoppingchart">我的购物车</a></div>
-			<div class="col-sm-1"><a href="">帮助中心</a></div>
-			<div class="col-sm-offset-9">
-				<a href="" class="icon-github-alt footericon"></a>
-				<a href="" class="icon-twitter-sign footericon"></a>
+	<section id="confirmOrder" class="mycontainer">
+		<div class="chart_div confirmDiv">
+			<div class="row">
+				<h4>我的订单</h4>
+			</div>
+			<ul class="list-group" id="confirmUl">
+				<script type="text/template" id="confirmTemplate">
+				<li class="list-group-item">
+								<div class="row">
+												<div class="col-sm-offset-1 col-sm-2 orderImg">
+																<img src="{picture}">
+												</div>
+												<div class="col-sm-3">
+																<div class="row">
+																				书籍名称:&nbsp;&nbsp;<span>{name}</span>
+																</div>
+																<div class="row">
+																				作者:&nbsp;&nbsp;<span>{author}</span>
+																</div>
+												</div>
+												<div class="col-sm-3">
+																<div class="row">
+																				余量:&nbsp;&nbsp;<span>{remainnum}</span>
+																</div>
+																<div class="row">
+																				单价:&nbsp;&nbsp;￥<span>{price}</span>
+																</div>
+												</div>
+												<div class="col-sm-3">
+																<div class="row">
+																				购买数量:&nbsp;&nbsp;<span style="font-size:1.1rem;">{wantnum}</span>
+																</div>
+																<div class="row">
+																				总价:&nbsp;&nbsp;￥<span>{fprice}</span>
+																</div>
+												</div>
+								</div>
+				</li>
+				</script>
+			</ul>
+		</div>
+		<div class="info_div">
+			<div class="row">
+				<h4>订单信息</h4>
+				<div id="infoContent">
+				<script type="text/template" id="userInfoTemplate">
+						<div class="row">
+								<div class="col-sm-3 col-sm-offset-2">订单总价&nbsp;&nbsp;￥<span>{fprice}</span></div>
+								<div class="col-sm-3 col-sm-offset-2">订单书籍数目&nbsp;&nbsp;<span>{wantnum}</span></div>
+						</div>
+						<div class="row">
+								<div class="col-sm-3 col-sm-offset-2">收货人姓名&nbsp;&nbsp;<span>哈哈哈哈哈哈</span></div>
+								<div class="col-sm-3 col-sm-offset-2">收货人联系方式&nbsp;&nbsp;<span>哈哈哈哈哈哈</span></div>
+						</div>
+						<div class="row">
+								<div class="col-sm-6 col-sm-offset-2">收货地址&nbsp;&nbsp;<span>精神分裂神经分裂司法局</span></div>
+						</div>
+				</div>
+				</script>
+			</div>
+			<div class="confirmChart">
+				<a class="btn btn-info" onclick="createOrder()">确认下单</a>
 			</div>
 		</div>
-		<div class="row footerrow2">
-			<div class="col-sm-1" style="text-align:left"><img style="width:100%;margin-left:25px " src="../static/img/footer.png"></div>
-			<div class="col-sm-4 col-sm-offset-3" style="text-align:right"><span>Copyright © ONLINE BOOKSTOR 我的网上书店</span></div>
-			<div class="name" ><span style="color:#669999">71Y13123梁界</span></div>
-			<div class="name nameborder"><span style="color:#CC6666">71113211魏远卓</span></div>
-			<div class="name" ><span style="color:#666699">71113106陈建蓉</span></div>
+		<div class="alert alert-success alert-dismissible" role="alert" id="createOrder_alert">
+				<span aria-hidden="true">&times;</span></button>
+			</div>
+		
+		
+	</section>
+	<footer>
+		<div class="row myfooter">
+			<div class="row footerrow">
+				<div class="col-sm-1 "><a href="/">首页</a></div>
+				<div class="col-sm-1"><a href="">新用户注册</a></div>
+				<div class="col-sm-1"><a href="">搜索书籍</a></div>
+				<div class="col-sm-1"><a href="shoppingchart">我的购物车</a></div>
+				<div class="col-sm-1"><a href="">帮助中心</a></div>
+				<div class="col-sm-offset-9">
+					<a href="" class="icon-github-alt footericon"></a>
+					<a href="" class="icon-twitter-sign footericon"></a>
+				</div>
+			</div>
+			<div class="row footerrow2">
+				<div class="col-sm-1" style="text-align:left"><img style="width:100%;margin-left:25px " src="../static/img/footer.png"></div>
+				<div class="col-sm-4 col-sm-offset-3" style="text-align:right"><span>Copyright © ONLINE BOOKSTOR 我的网上书店</span></div>
+				<div class="name" ><span style="color:#669999">71Y13123梁界</span></div>
+				<div class="name nameborder"><span style="color:#CC6666">71113211魏远卓</span></div>
+				<div class="name" ><span style="color:#666699">71113106陈建蓉</span></div>
+			</div>
 		</div>
-	</div>
-</footer>
-<script type="text/javascript" src="../static/js/shoppingchart.js"></script>
+	</footer>
+	<script type="text/javascript" src="../static/js/shoppingchart.js"></script>
 {% end %}
 </body>
 </html>

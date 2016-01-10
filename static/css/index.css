@@ -252,6 +252,8 @@ option{
 }
 .confirmChart{
 	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
 	text-align: center;
 	width: 30%;
 }
@@ -274,6 +276,15 @@ option{
 .page{
 	background: none;
 	padding:0px 5px 30px 5px!important;
+}
+#blank{
+	text-align: center;
+	font-size: 1rem;
+	color: #CC9966;
+	padding-bottom: 20px;
+}
+#confirmOrder{
+	display: none;
 }
 /*——————————————————————————————订单——————————————————————————————*/
 #orders span{

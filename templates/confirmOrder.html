@@ -2,43 +2,45 @@
 {% block header %}
 {% end %}
 {% block body %}
-<section id="confirmOrder" class="mycontainer">
-			<div class="chart_div confirmDiv">
+	<section id="confirmOrder" class="mycontainer">
+		<div class="chart_div confirmDiv">
 			<div class="row">
 				<h4>我的订单</h4>
 			</div>
 			<ul class="list-group">
+				<script type="text/template" id="confirmTemplate">
 				<li class="list-group-item">
-					<div class="row">
-						<div class="col-sm-offset-1 col-sm-2 orderImg">
-							<img src="../static/img/books_2.png">
+						<div class="row">
+								<div class="col-sm-offset-1 col-sm-2 orderImg">
+										<img src="{picture}">
+								</div>
+								<div class="col-sm-3">
+										<div class="row">
+												书籍名称:&nbsp;&nbsp;<span>{name}</span>
+										</div>
+										<div class="row">
+												作者:&nbsp;&nbsp;<span>{author}</span>
+										</div>
+								</div>
+								<div class="col-sm-3">
+										<div class="row">
+												余量:&nbsp;&nbsp;<span>{remainnum}</span>
+										</div>
+										<div class="row">
+												单价:&nbsp;&nbsp;<span>{price}</span>
+										</div>
+								</div>
+								<div class="col-sm-3">
+										<div class="row">
+												购买数量:&nbsp;&nbsp;<span style="font-size:1.1rem;">{wantnum}</span>
+										</div>
+										<div class="row">
+												总价:&nbsp;&nbsp;<span>{fprice}</span>
+										</div>
+								</div>
 						</div>
-						<div class="col-sm-3">
-							<div class="row">
-								书籍名称:&nbsp;&nbsp;<span>haha舒服舒服撒发生飞洒地方ha</span>
-							</div>
-							<div class="row">
-								作者:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="row">
-								余量:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-							<div class="row">
-								单价:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="row">
-								购买数量:&nbsp;&nbsp;<span style="font-size:1.1rem;">1</span>
-							</div>
-							<div class="row">
-								总价:&nbsp;&nbsp;<span>hahaha</span>
-							</div>
-						</div>
-					</div>
 				</li>
+				</script>
 			</ul>
 		</div>
 		<div class="info_div">
@@ -64,47 +66,30 @@
 				<p>success or error</p>
 			</div>
 		</div>
-</section>
-<footer>
-	<div class="row myfooter">
-		<div class="row footerrow">
-			<div class="col-sm-1 "><a href="/">首页</a></div>
-			<div class="col-sm-1"><a href="">新用户注册</a></div>
-			<div class="col-sm-1"><a href="">搜索书籍</a></div>
-			<div class="col-sm-1"><a href="shoppingchart">我的购物车</a></div>
-			<div class="col-sm-1"><a href="">帮助中心</a></div>
-			<div class="col-sm-offset-9">
-				<a href="" class="icon-github-alt footericon"></a>
-				<a href="" class="icon-twitter-sign footericon"></a>
+	</section>
+	<footer>
+		<div class="row myfooter">
+			<div class="row footerrow">
+				<div class="col-sm-1 "><a href="/">首页</a></div>
+				<div class="col-sm-1"><a href="">新用户注册</a></div>
+				<div class="col-sm-1"><a href="">搜索书籍</a></div>
+				<div class="col-sm-1"><a href="shoppingchart">我的购物车</a></div>
+				<div class="col-sm-1"><a href="">帮助中心</a></div>
+				<div class="col-sm-offset-9">
+					<a href="" class="icon-github-alt footericon"></a>
+					<a href="" class="icon-twitter-sign footericon"></a>
+				</div>
+			</div>
+			<div class="row footerrow2">
+				<div class="col-sm-1" style="text-align:left"><img style="width:100%;margin-left:25px " src="../static/img/footer.png"></div>
+				<div class="col-sm-4 col-sm-offset-3" style="text-align:right"><span>Copyright © ONLINE BOOKSTOR 我的网上书店</span></div>
+				<div class="name" ><span style="color:#669999">71Y13123梁界</span></div>
+				<div class="name nameborder"><span style="color:#CC6666">71113211魏远卓</span></div>
+				<div class="name" ><span style="color:#666699">71113106陈建蓉</span></div>
 			</div>
 		</div>
-		<div class="row footerrow2">
-			<div class="col-sm-1" style="text-align:left"><img style="width:100%;margin-left:25px " src="../static/img/footer.png"></div>
-			<div class="col-sm-4 col-sm-offset-3" style="text-align:right"><span>Copyright © ONLINE BOOKSTOR 我的网上书店</span></div>
-			<div class="name" ><span style="color:#669999">71Y13123梁界</span></div>
-			<div class="name nameborder"><span style="color:#CC6666">71113211魏远卓</span></div>
-			<div class="name" ><span style="color:#666699">71113106陈建蓉</span></div>
-		</div>
-	</div>
-</footer>
+	</footer>
+	<script type="text/javascript" src="../static/js/shoppingchart.js"></script>
 {% end %}
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
