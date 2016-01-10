@@ -64,8 +64,6 @@ function deleteChart() {
 }
 //生成订单
 function createOrder() {
-	s_isbn_array.pop(current.isbn);
-	$.cookie("shoppingChart", s_isbn_array);
 	$.ajax({
 			url: '/order/new',
 			type: 'POST',
@@ -73,17 +71,29 @@ function createOrder() {
 			data: {
 				isbn: current.isbn,
 				ordernum: currentnum,
-				bookprice: currentp
+				price: currentp
 			},
 		})
-		.done(function() {
-			console.log("创建成功");
-			$('#createOrder_alert>span').html("下单成功");
-			$('#createOrder_alert').show();
-			setTimeout(function(){
-				$('#createOrder_alert').fadeOut();
-				$('#createOrder_alert>span').html("");
-			},2000);
+		.done(function(data) {
+			console.log(data);
+			if(data.code==200){
+				s_isbn_array.pop(current.isbn);
+				$.cookie("shoppingChart", s_isbn_array);
+				$('#createOrder_alert>span').html("下单成功");
+				$('#createOrder_alert').show();
+				setTimeout(function() {
+					$('#createOrder_alert').fadeOut();
+					$('#createOrder_alert>span').html("");
+					$('#confirmOrder').hide();
+					$('#chartUl>li').html('');
+					$('#blank').html("当前购物车为空，快去选购商品吧~")
+					$('#shoppingchart').show();
+				}, 2000);
+			}
+			else{
+				$('#createOrder_alert>span').html(data.content);
+				$('#createOrder_alert').show();
+			}
 		})
 		.fail(function() {
 			console.log("error");
@@ -149,11 +159,37 @@ function toOrder() {
 		fprice: currentp
 	});
 	$('#confirmUl').html(resultO);
-	result1 = constant_userInfoTemplate.format({
-		fprice: currentp,
-		wantnum: currentnum
-	});
-	console.log('result1'+result1)
+	var username, phone, address;
+	//获取用户信息的ajax
+	$.ajax({
+			url: '/user/find',
+			type: 'POST',
+			dataType: 'json',
+			data: {},
+		})
+		.done(function(data) {
+			console.log("success");
+			username = data.content.name;
+			phone = data.content.phone;
+			address = data.content.address;
+			console.log(username);
+			result1 = constant_userInfoTemplate.format({
+				wantnum: currentnum,
+				fprice: currentp,
+				username: username,
+				phone: phone,
+				address: address
+			})
+			$('#infoContent').html(result1);
+
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	console.log('result1' + result1)
 	$('#infoContent').html(result1);
 	$('#confirmOrder').show();
 }
