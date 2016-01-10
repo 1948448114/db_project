@@ -51,26 +51,26 @@
 						<li><a href="shoppingchart">我的购物车</a></li>
 						<li><a href="/admin">管理员</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right" id="search_item">
 						<label class="label_to_center">
-							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							<input type="radio" name="optionsRadios" id="optionsRadios1" checked="true" value="isbn">
 							ISBN
 						</label>
 						<label class="label_to_center">
-							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="author">
 							作者
 						</label>
 						<label class="label_to_center">
-							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="name">
 							书籍名称
 						</label>
-						<form class="navbar-form navbar-right" role="search">
+						<div class="navbar-form navbar-right" >
 							<div class="form-group">
 								<label class="input_icon_s icon-search"></label>
 								<input type="text" class="form-control myinput" placeholder="搜索书籍">
 							</div>
-							<button type="submit" class="btn btn-default mybtn">搜索</button>
-						</form>
+							<button class="btn btn-default mybtn" id="search_btn">搜索</button>
+						</div>
 					</ul>
 					</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->

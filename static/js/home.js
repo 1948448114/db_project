@@ -128,3 +128,61 @@ function addToChart(){
 	}
 	$.cookie("shoppingChart",temp_isbn);
 }
+
+
+$(document).ready(function() {
+	search();
+});
+
+function search(){
+	$("#search_btn").click(function(event) {
+		var item = $("#search_item input[type='radio']:checked").val();
+		var search_val = $(".form-control.myinput").val();
+		var data = {};
+		data[item] = search_val;
+		jQuery.ajax({
+		  url: '/book/find',
+		  type: 'POST',
+		  dataType: 'json',
+		  data: data,
+		  success: function(data) {
+		  	show_book(data);
+		  },
+		  error: function(xhr, textStatus, errorThrown) {
+		    //called when there is an error
+		  }
+		});
+		
+	});
+}
+
+function show_book(data){
+	$("#books div ul a").html("搜索结果");
+	if(data.content.length<1){
+		$('#homeBookUl').html("没有搜索到结果");
+	} else {
+		var result = "";
+		var homeTemplate = constant_homeTemplate;
+		for (var i = 0; i < data.content.length; i++) {
+			if (data.content[i].active == 0) {
+				data.content[i].active = "下架";
+			} else {
+				data.content[i].active = "上架";
+			}
+			result += homeTemplate.format({
+				picture: data.content[i].picture,
+				name: data.content[i].name,
+				isbn: data.content[i].isbn,
+				shelftime: data.content[i].shelftime,
+				author: data.content[i].author,
+				releasetime: data.content[i].releasetime,
+				soldnum: data.content[i].soldnum,
+				remainnum: data.content[i].remainnum,
+				price: data.content[i].price,
+				active: data.content[i].active,
+				note: data.content[i].note
+			});
+		}
+		$('#homeBookUl').html(result);
+	}
+}

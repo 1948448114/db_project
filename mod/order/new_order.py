@@ -14,8 +14,8 @@ class NewOrderHandler(BaseHandler):
 	def post(self):
 		"""
 			state状态表
-			0：完成
-			1：已取消
+			1：完成
+			0：已取消
 		"""
 		retjson = {'code':200,'content':u'新建订单成功'}
 		try:
@@ -36,7 +36,7 @@ class NewOrderHandler(BaseHandler):
 						result = self.db.execute(querysql).fetchone().number
 						if result>0:
 							orderid = uuid.uuid1()
-							sql = "insert into Orders values('%s','%s','%s',%d,'%s',%d,%.2f)" % (orderid,isbn,user.phone,int(ordernum),int(time.time()),0,float(bookprice))
+							sql = "insert into Orders values('%s','%s','%s',%d,'%s',%d,%.2f)" % (orderid,isbn,user.phone,int(ordernum),int(time.time()),1,float(bookprice))
 							self.db.execute(sql)
 							self.db.commit()
 						else:
