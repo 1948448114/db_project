@@ -105,7 +105,7 @@ function getCancelOrder() {
 			if (contentArray[i].orderstate == 0) {
 				orderstate = "已取消订单"
 				bookprice = contentArray[i].bookprice;
-				result0 = constant_orderTemplate.format({
+				result0 = constant_cancelOrderTemplate.format({
 					orderid: orderid,
 					ordertime: ordertime,
 					ordernum: ordernum,
@@ -151,6 +151,10 @@ function cancelOrder() {
 			console.log("complete");
 		});
 
+}
+//刷新取消订单
+function freshCancel(){
+	getCancelOrder();
 }
 $(function() {
 	constant_orderTemplate = $('#orderTemplate').html();
