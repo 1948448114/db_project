@@ -98,7 +98,7 @@ $(function(){
 						setTimeout(function() {
 							$("#login_alert").fadeOut();
 							$(".login").fadeOut();
-							location.reload();
+							n.reload(locatio);
 						}, 1000);
 					} else
 						$('#login_alert>p').html(data.content);
