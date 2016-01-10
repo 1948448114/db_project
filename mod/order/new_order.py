@@ -32,7 +32,7 @@ class NewOrderHandler(BaseHandler):
 					retjson['content'] = u'参数缺少'
 				else:
 					if int(ordernum)>0:
-						querysql = "select count(*) as number from Books where isbn='"+isbn+"'";
+						querysql = "select count(*) as number from Books where active=1 and isbn='"+isbn+"'";
 						result = self.db.execute(querysql).fetchone().number
 						if result>0:
 							orderid = uuid.uuid1()
@@ -41,7 +41,7 @@ class NewOrderHandler(BaseHandler):
 							self.db.commit()
 						else:
 							retjson['code'] = 400
-							retjson['content'] = u'书籍不存在'
+							retjson['content'] = u'书籍不存在或下架'
 					else:
 						retjson['code'] = 400
 						retjson['content'] = u'数量不合法'
