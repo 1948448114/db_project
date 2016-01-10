@@ -159,3 +159,7 @@ $(function(){
 				});
 		});
 })
+function focusInput(){
+	console.log("ppp");
+	 $("input[name='search']").focus();
+}

@@ -48,6 +48,7 @@ class Application(tornado.web.Application):
             (r'/user/remove',DeleteUserHandler),#管理员删除用户
             (r'/user/all',AllUserHandler),#所有用户
             (r'/user/find',FindUserHandler),#查找用户
+            (r'/helpcenter',HelpHandler),#帮助中心
             
             (r'/book/all',AllBookHandler),#所有书籍
             (r'/book/new',NewBookHandler),#添加书籍
@@ -98,7 +99,6 @@ class ShopChartHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('shoppingchart.html',user=user)
-
 class AdminHandler(BaseHandler):
     def get(self):
         user = self.get_current_admin()
@@ -116,6 +116,10 @@ class FooterHandler(BaseHandler):
     def get(self):
         user = self.get_current_user()
         self.render('footer.html',user=user)
+class HelpHandler(BaseHandler):
+    def get(self):
+        user = self.get_current_user()
+        self.render('helpcenter.html',user=user)
 if __name__ == "__main__":
     tornado.options.parse_command_line()
     Application().listen(options.port)
