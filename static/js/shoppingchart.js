@@ -1,4 +1,5 @@
 var constant_chartTemplate = '';
+var s_isbn_array=[]
 var number; //设置初值为1
 var temp_books;
 var result; //购物车，模板
@@ -197,12 +198,13 @@ function toOrder() {
 $(function() {
 	//与购物车展示有关的赋值
 	temp_books = $.cookie("shoppingChart");
-	s_isbn_array = temp_books.split(',');
+	console.log(temp_books)
 	constant_chartTemplate = $('#chartTemplate').html();
 	result = '';
 	number = 1;
 	//————————————展示购物车中商品————————————
 	if (temp_books.length >= 1) {
+		s_isbn_array = temp_books.split(',');
 		for (var i = 0; i < s_isbn_array.length; i++) {
 			ajaxGetbooks(s_isbn_array[i]);
 		}
