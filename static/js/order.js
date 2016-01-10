@@ -25,6 +25,8 @@ String.prototype.format = function(args) {
 	return result;
 }
 var orderid,ordertime,isbn,ordernum,orderstate,bookprice;
+var constant_orderTemplate='';
+var result;
 function getOrders(){
 	$.ajax({
 		url: '/order/get',
@@ -34,13 +36,27 @@ function getOrders(){
 	})
 	.done(function(data) {
 		console.log("获取订单成功");
+		console.log(data);
 		var contentArray=data.content;
 		for(var i=0;i<contentArray.length;i++){
 			orderid=contentArray[i].orderid;
 			ordertime=contentArray[i].ordertime;
 			ordernum=contentArray[i].ordernum;
-			orderstate=contentArray[i].orderstate;
+			if(contentArray[i].orderstate==0){
+				orderstate="已取消"
+			}
+			else{
+				orderstate="有效订单"
+			}
 			bookprice=contentArray[i].bookprice;
+			result=constant_orderTemplate.format({
+				orderid:orderid,
+				ordertime:ordertime,
+				ordernum:ordernum,
+				orderstate:orderstate,
+				bookprice:bookprice
+			})
+			$('#myorderUl').append(result);
 		}
 	})
 	.fail(function() {
@@ -52,5 +68,11 @@ function getOrders(){
 	
 }
 $(function(){
-	
+	constant_orderTemplate=$('#orderTemplate').html();
+	getOrders();
 })
+
+
+
+
+
