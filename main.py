@@ -19,7 +19,7 @@ from mod.user.login import LoginHandler
 from mod.user.admin_login import AdminLoginHandler
 from mod.user.all_user import AllUserHandler
 from mod.user.delete_user import DeleteUserHandler
-from mod.user.find_user import FindUserHandler
+from mod.user.get_info import FindUserHandler
 
 from mod.book.new_book import NewBookHandler
 from mod.book.delete_book import DeleteBookHandler
@@ -47,7 +47,7 @@ class Application(tornado.web.Application):
             (r'/admin/login',AdminLoginHandler),#管理员登录
             (r'/user/remove',DeleteUserHandler),#管理员删除用户
             (r'/user/all',AllUserHandler),#所有用户
-            # (r'/user/find',FindUserHandler)#查找用户
+            (r'/user/find',FindUserHandler),#查找用户
             
             (r'/book/all',AllBookHandler),#所有书籍
             (r'/book/new',NewBookHandler),#添加书籍

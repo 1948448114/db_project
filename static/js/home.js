@@ -109,24 +109,32 @@ function showInfo() {
 	$(event.target).closest('.list-group-item').find('.bookInfo').toggle();
 }
 //————————————页面一加载就执行————————————
-$(function(){
+$(function() {
 		constant_homeTemplate = $('#book-item-temp').html();
 		//————————————首页书籍展示————————————
 		getbookInfo();
-			//————————————显示书籍简介————————————
+		//————————————显示书籍简介————————————
 		$('.showInfo').click(function() {
 			$('.bookInfo').toggle();
 		});
-})
-//在home页点击加入购物车按钮，加入购物车,设置cookie
-function addToChart(){
-	var temp_isbn=$.cookie("shoppingChart");
-	if(temp_isbn){
-		temp_isbn+=','+$(event.target).closest('.list-group-item').find('.home_isbn').html();
-	}else{
-		temp_isbn=$(event.target).closest('.list-group-item').find('.home_isbn').html();
+	})
+	//在home页点击加入购物车按钮，加入购物车,设置cookie
+function addToChart() {
+	var state = $(event.target).closest('.list-group-item').find('.home_active').html();
+	console.log(state);
+	if (state == "下架") {
+		$(event.target).closest('.list-group-item').find('.chartbtn').disabled=true;
+		$.cookie("shoppingChart", '');
+	} else {
+		var temp_isbn = $.cookie("shoppingChart");
+		if (temp_isbn) {
+			temp_isbn += ',' + $(event.target).closest('.list-group-item').find('.home_isbn').html();
+		} else {
+			temp_isbn = $(event.target).closest('.list-group-item').find('.home_isbn').html();
+		}
+		$.cookie("shoppingChart", temp_isbn);
 	}
-	$.cookie("shoppingChart",temp_isbn);
+
 }
 
 
@@ -134,31 +142,31 @@ $(document).ready(function() {
 	search();
 });
 
-function search(){
+function search() {
 	$("#search_btn").click(function(event) {
 		var item = $("#search_item input[type='radio']:checked").val();
 		var search_val = $(".form-control.myinput").val();
 		var data = {};
 		data[item] = search_val;
 		jQuery.ajax({
-		  url: '/book/find',
-		  type: 'POST',
-		  dataType: 'json',
-		  data: data,
-		  success: function(data) {
-		  	show_book(data);
-		  },
-		  error: function(xhr, textStatus, errorThrown) {
-		    //called when there is an error
-		  }
+			url: '/book/find',
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+			success: function(data) {
+				show_book(data);
+			},
+			error: function(xhr, textStatus, errorThrown) {
+				//called when there is an error
+			}
 		});
-		
+
 	});
 }
 
-function show_book(data){
+function show_book(data) {
 	$("#books div ul a").html("搜索结果");
-	if(data.content.length<1){
+	if (data.content.length < 1) {
 		$('#homeBookUl').html("没有搜索到结果");
 	} else {
 		var result = "";

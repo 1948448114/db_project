@@ -27,6 +27,9 @@ color: #999;
 option{
 	color: #444;
 }
+.alert{
+	text-align: center;
+}
 .mycontainer{
 	position:relative;
 	/*width:100%;*/
