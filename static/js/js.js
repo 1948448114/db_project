@@ -120,7 +120,7 @@ function allbook() {
 		.done(function(data) {
 				result = {1:"已上架",0:"未上架"}
 			if (data['code'] == 200) {
-				var htmlInsert = " <tr class='addline row'><td class='col-sm-1'>ISDN</td><td class='col-sm-1'>书籍名称</td><td class = 'col-sm-1'>书籍图片</td><td class = 'col-sm-1'>书籍作者</td><td class = 'col-sm-1'>书籍价格</td><td class = 'col-sm-1'>已售数量</td><td class = 'col-sm-1' >库存数量</td><td class = 'col-sm-1' >上架时间</td> <td class = 'col-sm-1'>出版时间</td><td class = 'col-sm-1'>书籍状态</td> <td class = 'col-sm-1'>书籍简介</td><td class = 'col-sm-1'>操作</td></tr>";
+				var htmlInsert = " <tr class='addline row'><td class='col-sm-1'>ISBN</td><td class='col-sm-1'>书籍名称</td><td class = 'col-sm-1'>书籍图片</td><td class = 'col-sm-1'>书籍作者</td><td class = 'col-sm-1'>书籍价格</td><td class = 'col-sm-1'>已售数量</td><td class = 'col-sm-1' >库存数量</td><td class = 'col-sm-1' >上架时间</td> <td class = 'col-sm-1'>出版时间</td><td class = 'col-sm-1'>书籍状态</td> <td class = 'col-sm-1'>书籍简介</td><td class = 'col-sm-1'>操作</td></tr>";
 				for (var i = 0; i < data['content'].length; i++) {
 					htmlInsert += "<tr class='addline row'><td class='col-sm-1'>" + data['content'][i]['isbn'] + " </td> <td class='col-sm-1'>" + data['content'][i]['name'] + "</td> <td class='col-sm-1'>" + data['content'][i]['picture'] + "</td> <td class='col-sm-1'>" + data['content'][i]['author'] + " </td> <td class='col-sm-1'>" + data['content'][i]['price'] + " </td> <td class='col-sm-1'>" + data['content'][i]['soldnum'] + " </td> <td class='col-sm-1'>" + data['content'][i]['remainnum'] + " </td> <td class='col-sm-1'>" + data['content'][i]['shelftime'] + " </td> <td class='col-sm-1'>" + data['content'][i]['releasetime'] + " </td> <td class='col-sm-1'>" + result[data['content'][i]['active']] + " </td> <td class='col-sm-1'>" + data['content'][i]['note'] + "<td class='col-sm-1 row rowtd'><input class='bj_btn col-sm-6 btn-info' type='button' value='编辑' onclick='update_b(" + data['content'][i]['isbn'] + ")'/><input class='del_btn col-sm-6 btn-danger'type='button' value='删除' onclick='delete_b(" + data['content'][i]['isbn'] + ",1)'/></td></tr>";
 				}
@@ -168,7 +168,7 @@ function allorder() {
 			result = {1:"下单成功",0:"订单取消"}
 			console.log(data);
 			if (data['code'] == 200) {
-				var htmlInsert = "<tr class='addline tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISDN</td><td class='col-sm-2'>用户号</td><td class = 'col-sm-1'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-1'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
+				var htmlInsert = "<tr class='addline tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISBN</td><td class='col-sm-2'>用户号</td><td class = 'col-sm-1'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-1'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
 				for (var i = 0; i < data['content'].length; i++) {
 					htmlInsert += "<tr class='addline tb_title row'> <td class='col-sm-3'>" + data['content'][i]['orderid'] + " </td> <td class='col-sm-1'>" + data['content'][i]['isbn'] + "</td> <td class='col-sm-2'>" + data['content'][i]['phone'] + "</td> <td class='col-sm-1'>" + data['content'][i]['ordernum'] + " </td> <td class='col-sm-2'>" + data['content'][i]['ordertime'] + " </td> <td class='col-sm-1'>" + result[data['content'][i]['orderstate']] + " </td> <td class='col-sm-2'>" + data['content'][i]['bookprice'] + "</td > </tr>";
 				}
@@ -339,7 +339,7 @@ function findorder() {
 			console.log(data);
 			result = {1:"下单成功",0:"订单取消"}
 			if (data['code'] == 200) {
-				var htmlInsert = "<tr class='addline tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISDN</td></td><td class = 'col-sm-2'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-2'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
+				var htmlInsert = "<tr class='addline tb_title row'><td class='col-sm-3'>订单号</td><td class='col-sm-1'>ISBN</td></td><td class = 'col-sm-2'>订单数目</td><td class = 'col-sm-2'>订单时间</td><td class = 'col-sm-2'>订单状态</td><td class = 'col-sm-2'>书籍价格</td></tr>";
 				for (var i = 0; i < data['content'].length; i++) {
 					htmlInsert += "<tr class='addline tb_title row'> <td class='col-sm-3'>" + data['content'][i]['orderid'] + " </td> <td class='col-sm-1'>" + data['content'][i]['isbn'] + "</td> <td class='col-sm-2'>" + data['content'][i]['ordernum'] + " </td> <td class='col-sm-2'>" + data['content'][i]['ordertime'] + " </td> <td class='col-sm-2'>" + result[data['content'][i]['orderstate']] + " </td> <td class='col-sm-2'>" + data['content'][i]['bookprice'] + "</td > </tr>";
 				}
@@ -375,7 +375,7 @@ function findbook() {
 				result = {1:"已上架",0:"未上架"}
 			console.log(data);
 			if (data['code'] == 200) {
-				var htmlInsert = " <tr class='addline row'><td class='col-sm-1'>ISDN</td><td class='col-sm-1'>书籍名称</td><td class = 'col-sm-1'>书籍图片</td><td class = 'col-sm-1'>书籍作者</td><td class = 'col-sm-1'>书籍价格</td><td class = 'col-sm-1'>已售数量</td><td class = 'col-sm-1' >库存数量</td><td class = 'col-sm-1' >上架时间</td> <td class = 'col-sm-1'>出版时间</td><td class = 'col-sm-1'>书籍状态</td> <td class = 'col-sm-1'>书籍简介</td><td class = 'col-sm-1'>操作</td></tr>";
+				var htmlInsert = " <tr class='addline row'><td class='col-sm-1'>ISBN</td><td class='col-sm-1'>书籍名称</td><td class = 'col-sm-1'>书籍图片</td><td class = 'col-sm-1'>书籍作者</td><td class = 'col-sm-1'>书籍价格</td><td class = 'col-sm-1'>已售数量</td><td class = 'col-sm-1' >库存数量</td><td class = 'col-sm-1' >上架时间</td> <td class = 'col-sm-1'>出版时间</td><td class = 'col-sm-1'>书籍状态</td> <td class = 'col-sm-1'>书籍简介</td><td class = 'col-sm-1'>操作</td></tr>";
 				for (var i = 0; i < data['content'].length; i++) {
 					htmlInsert += "<tr class='addline row'><td class='col-sm-1'>" + data['content'][i]['isbn'] + " </td> <td class='col-sm-1'>" + data['content'][i]['name'] + "</td> <td class='col-sm-1'>" + data['content'][i]['picture'] + "</td> <td class='col-sm-1'>" + data['content'][i]['author'] + " </td> <td class='col-sm-1'>" + data['content'][i]['price'] + " </td> <td class='col-sm-1'>" + data['content'][i]['soldnum'] + " </td> <td class='col-sm-1'>" + data['content'][i]['remainnum'] + " </td> <td class='col-sm-1'>" + data['content'][i]['shelftime'] + " </td> <td class='col-sm-1'>" + data['content'][i]['releasetime'] + " </td> <td class='col-sm-1'>" + result[data['content'][i]['active']] + " </td> <td class='col-sm-1'>" + data['content'][i]['note'] + "<td class='col-sm-1 row rowtd'><input class='bj_btn col-sm-6 btn-info' type='button' value='编辑' onclick='update_b(" + data['content'][i]['isbn'] + ")'/><input class='del_btn col-sm-6 btn-danger'type='button' value='删除' onclick='delete_b(" + data['content'][i]['isbn'] + ",2)'/></td></tr>";
 				}
@@ -393,6 +393,7 @@ function findbook() {
 function update_b(book_isbn) {
 	$("#con_colum_3").css("display", "block");
 	$("#con_colum_1").css("display", "none");
+	$("#con_colum_2").css("display", "none");
 	document.getElementById('ubook_isbn').value = book_isbn;
 	$.ajax({
 			url: '/book/find',
@@ -405,6 +406,7 @@ function update_b(book_isbn) {
 		.done(function(data) {
 			console.log(data);
 			$("#update_book_block").css("display", "block");
+
 			document.getElementById('ubook_name').value = data['content'][0]['name'];
 			document.getElementById('ubook_author').value = data['content'][0]['author'];
 			document.getElementById('ubook_price').value = data['content'][0]['price'];
