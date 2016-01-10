@@ -155,6 +155,7 @@ function search() {
 			data: data,
 			success: function(data) {
 				show_book(data);
+				console.log(data);
 			},
 			error: function(xhr, textStatus, errorThrown) {
 				//called when there is an error

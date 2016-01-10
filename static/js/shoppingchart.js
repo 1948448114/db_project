@@ -89,7 +89,7 @@ function createOrder() {
 					$('#chartUl>li').html('');
 					$('#blank').html("当前购物车为空，快去选购商品吧~")
 					$('#shoppingchart').show();
-				}, 2000);
+				}, 2000000);
 			}
 			else{
 				$('#createOrder_alert>span').html(data.content);
